@@ -37,6 +37,5 @@ public class CustomView extends ConstraintLayout {
             case CONSOLE:
                 break;
         }
-
     }
 }
