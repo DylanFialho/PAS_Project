@@ -8,11 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="selectedIconColor">#04E1F8</color>
-    <color name="defaultIconColor">#F6F6F6</color>
-    <color name="countTextColor">#fff</color>
-    <color name="countBackgroundColor">#F45E0B</color>
+    <color name="selectedIconColor">#00A8E8</color>
+    <color name="defaultIconColor">#00A8E8</color>
+    <color name="countTextColor">#000000</color>
+    <color name="countBackgroundColor">#fff</color>
     <color name="circleColor">#fff</color>
-    <color name="backgroundBottomColor">#04E1F8</color>
-    <color name="shadowColor">#2E2E2E</color>
+    <color name="backgroundBottomColor">#003459</color>
+    <color name="shadowColor">#FFF</color>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context=".MainActivity">
     
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
@@ -17,6 +18,7 @@
         app:mbn_countBackgroundColor="@color/countBackgroundColor"
         app:mbn_defaultIconColor="@color/defaultIconColor"
         app:mbn_selectedIconColor="@color/selectedIconColor"
+        app:mbn_countTextColor="@color/countTextColor"
         />
 
 </FrameLayout>
