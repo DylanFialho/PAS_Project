@@ -14,5 +14,6 @@
     <color name="countBackgroundColor">#fff</color>
     <color name="circleColor">#fff</color>
     <color name="backgroundBottomColor">#003459</color>
-    <color name="shadowColor">#FFF</color>
+    <color name="shadowColor">#028FA2</color>
+    <color name="topConstraintColor">#67D5FF</color>
 </resources>

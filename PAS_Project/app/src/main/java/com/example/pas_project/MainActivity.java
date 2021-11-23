@@ -1,6 +1,7 @@
 package com.example.pas_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomNav);
 
@@ -28,9 +30,22 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_Cart, R.drawable.ic_baseline_shopping_cart_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_News, R.drawable.ic_baseline_news_24));
 
+
+
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
+                switch (item.getId()) {
+                    case ID_Home:
+                        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView, HomeFragment.class, null).commit();
+                        break;
+                    case ID_News:
+
+                        break;
+                    case ID_Cart:
+
+                        break;
+                }
             }
         });
 
@@ -44,5 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation.setCount(ID_Cart, "2");
         bottomNavigation.show(ID_Home, true);
+
+
     }
 }
