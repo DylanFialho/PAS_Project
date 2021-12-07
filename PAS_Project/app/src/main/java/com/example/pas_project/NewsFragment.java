@@ -12,24 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
+    private NewsViewModel mViewModel;
 
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
+    public static NewsFragment newInstance() {
+        return new NewsFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return inflater.inflate(R.layout.news_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
         // TODO: Use the ViewModel
     }
 

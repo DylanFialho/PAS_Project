@@ -7,29 +7,44 @@
     android:background="#fff"
     tools:context=".MainActivity">
 
-    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
+<!--    <com.etebarian.meowbottomnavigation.MeowBottomNavigation-->
+<!--        android:id="@+id/bottomNav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:mbn_backgroundBottomColor="@color/backgroundBottomColor"-->
+<!--        app:mbn_circleColor="@color/circleColor"-->
+<!--        app:mbn_countBackgroundColor="@color/countBackgroundColor"-->
+<!--        app:mbn_countTextColor="@color/countTextColor"-->
+<!--        app:mbn_defaultIconColor="@color/defaultIconColor"-->
+<!--        app:mbn_selectedIconColor="@color/selectedIconColor"-->
+<!--        app:mbn_shadowColor="@color/shadowColor"-->
+<!--        />-->
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:mbn_backgroundBottomColor="@color/backgroundBottomColor"
-        app:mbn_circleColor="@color/circleColor"
-        app:mbn_countBackgroundColor="@color/countBackgroundColor"
-        app:mbn_countTextColor="@color/countTextColor"
-        app:mbn_defaultIconColor="@color/defaultIconColor"
-        app:mbn_selectedIconColor="@color/selectedIconColor"
-        app:mbn_shadowColor="@color/shadowColor" />
+        app:menu="@menu/main_bottom_nav" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.pas_project.HomeFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
