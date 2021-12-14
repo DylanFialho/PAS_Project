@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.pas_project.HomeFragment"
+        android:name="com.example.pas_project.Fragment.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.pas_project.CartFragment"
+        android:name="com.example.pas_project.Fragment.CartFragment"
         android:label="cart_fragment"
         tools:layout="@layout/cart_fragment" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.pas_project.NewsFragment"
+        android:name="com.example.pas_project.Fragment.NewsFragment"
         android:label="news_fragment"
         tools:layout="@layout/news_fragment" />
 </navigation>

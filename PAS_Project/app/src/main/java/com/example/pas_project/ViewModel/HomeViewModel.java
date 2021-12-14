@@ -1,4 +1,4 @@
-package com.example.pas_project;
+package com.example.pas_project.ViewModel;
 
 import androidx.lifecycle.ViewModel;
 
