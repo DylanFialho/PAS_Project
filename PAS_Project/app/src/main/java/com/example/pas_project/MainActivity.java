@@ -14,8 +14,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CustomView customView;
-
     private final int ID_Home = 1;
     private final int ID_News = 2;
     private final int ID_Cart = 3;
