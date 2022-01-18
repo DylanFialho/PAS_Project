@@ -10,9 +10,11 @@ import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 public interface GameService {
+
     @GET("games/")
     Call<List<Game>> getGames(@Header("Authorization") String authToken);
 
     @GET("game/{id}")
     Call<Game> getGameId(@Path("id") long id);
+
 }

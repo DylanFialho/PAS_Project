@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DataSource {
 
-    private final static String WEB_URL = "";
+    private final static String WEB_URL = "http://localhost:8000/api/";
 
     private static Retrofit retrofit = new Retrofit.Builder().baseUrl(WEB_URL).
             addConverterFactory(GsonConverterFactory.create()).
@@ -13,7 +13,7 @@ public class DataSource {
 
     private static GameService gameService;
 
-    public static GameService getPostService(){
+    public static GameService getGameService(){
 
         if(gameService == null){
             gameService = retrofit.create(GameService.class);

@@ -13,7 +13,7 @@ import com.example.pas_project.model.User;
 public abstract class AppDatabase extends RoomDatabase {
 
     public GameDao getGameDao();
-    public ReviewDao getUserDao();
+    public ReviewDao getReviewDao();
 
     private static AppDatabase INSTANCE;
 
