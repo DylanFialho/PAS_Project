@@ -1,59 +1,83 @@
 package com.example.pas_project.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Game {
 
-    private int id;
-    private String url;
-    private String name;
-    private String categpry;
-    private String console;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    private String imgURL;
+    private String title;
+    private String description;
+    private String category;
+    private float price;
+    private boolean isInCart;
 
-
-    public Game(int id, String url, String name, String categpry, String console) {
+    public Game(long id, String imgURL, String title, String description, String category, float price, boolean isInCart) {
         this.id = id;
-        this.url = url;
-        this.name = name;
-        this.categpry = categpry;
-        this.console = console;
+        this.imgURL = imgURL;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.price = price;
+        this.isInCart = isInCart;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImgURL() {
+        return imgURL;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getCategpry() {
-        return categpry;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCategpry(String categpry) {
-        this.categpry = categpry;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getConsole() {
-        return console;
+    public String getCategory() {
+        return category;
     }
 
-    public void setConsole(String console) {
-        this.console = console;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public boolean isInCart() {
+        return isInCart;
+    }
+
+    public void setInCart(boolean inCart) {
+        isInCart = inCart;
     }
 }
