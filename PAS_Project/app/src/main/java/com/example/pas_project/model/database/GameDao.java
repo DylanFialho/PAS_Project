@@ -15,4 +15,7 @@ public interface GameDao {
 
     @Query("SELECT * FROM Games WHERE id = :idGame")
     LiveData<Game> getGame(long idGame);
+
+    @Query("SELECT * FROM Game WHERE isInCart = 1")
+    List<Game> getAllInCart();
 }

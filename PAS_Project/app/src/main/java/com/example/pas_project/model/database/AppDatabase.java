@@ -12,8 +12,8 @@ import com.example.pas_project.model.User;
 @Database(entities = {Game.class, User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
-    //public GameDao getGameDao();
-    //public ReviewDao getReviewDao();
+    public abstract GameDao getGameDao();
+    public abstract ReviewDao getReviewDao();
 
     private static AppDatabase INSTANCE;
 
