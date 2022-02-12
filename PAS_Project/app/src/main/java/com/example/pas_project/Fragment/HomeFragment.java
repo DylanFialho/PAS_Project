@@ -34,6 +34,6 @@ public class HomeFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerHome);
-        GameCategoryAdapter categoryAdapter = new GameCategoryAdapter(getContext(),);
+        GameCategoryAdapter categoryAdapter = new GameCategoryAdapter(getContext());
     }
 }

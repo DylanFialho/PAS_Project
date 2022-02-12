@@ -41,6 +41,10 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHo
         Glide.with(context).load(game.getImgURL()).into(holder.getGameImageView());
         holder.getTextViewTitle().setText(game.getTitle());
         holder.getTextViewPrice().setText(String.valueOf(game.getPrice()));
+
+        holder.getRoot().setOnClickListener(view -> {
+
+        });
     }
 
     @Override

@@ -10,10 +10,10 @@ import java.util.List;
 @Dao
 public interface GameDao {
 
-    @Query("SELECT * FROM Games")
+    @Query("SELECT * FROM Game")
     LiveData<List<Game>> getAllGames();
 
-    @Query("SELECT * FROM Games WHERE id = :idGame")
+    @Query("SELECT * FROM Game WHERE id = :idGame")
     LiveData<Game> getGame(long idGame);
 
     @Query("SELECT * FROM Game WHERE isInCart = 1")
