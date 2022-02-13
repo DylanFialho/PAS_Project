@@ -50,8 +50,7 @@ public class CartFragment extends Fragment {
 
         toolbar.setTitle("Carrinho");
 
-        cartAdapter = new CartAdapter(this,
-                AppDatabase.getInstance(this).getGameDao().getAllInCart());
+        cartAdapter = AppDatabase.getInstance(this).getGameDao().getAllInCart();
 
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
