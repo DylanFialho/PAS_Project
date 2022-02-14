@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\UserApp;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class UserApiController extends Controller
     public function index()
     {
         //
-        $user = User::all();
+        $user = UserApp::all();
         return view('user.list', compact('user','user'));
     }
  
@@ -39,19 +40,17 @@ class UserApiController extends Controller
     {
         //
         $request->validate([
-            'txtFirstName'=>'required',
-            'txtLastName'=> 'required',
-            'txtAddress' => 'required'
+            'email'=>'required',
+            'password'=> 'required'
         ]);
  
         $student = new Student([
-            'first_name' => $request->get('txtFirstName'),
-            'last_name'=> $request->get('txtLastName'),
-            'address'=> $request->get('txtAddress')
+            'email' => $request->get('txtFirstName'),
+            'password'=> $request->get('txtLastName')
         ]);
  
         $student->save();
-        return redirect('/student')->with('success', 'Student has been added');
+        return redirect('/userapps')->with('success', 'Student has been added');
     }
  
     /**
@@ -63,26 +62,26 @@ class UserApiController extends Controller
     public function show(Student $student)
     {
         //
-        return view('student.view',compact('student'));
+        return view('user.view',compact('user'));
     }
  
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(UserApp $user)
     {
         //
-        return view('student.edit',compact('student'));
+        return view('user.edit',compact('user'));
     }
  
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \App\UserApp  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
@@ -90,33 +89,31 @@ class UserApiController extends Controller
         //
  
         $request->validate([
-            'txtFirstName'=>'required',
-            'txtLastName'=> 'required',
-            'txtAddress' => 'required'
+            'email'=>'required',
+            'password'=> 'required'
         ]);
  
  
-        $student = Student::find($id);
-        $student->first_name = $request->get('txtFirstName');
-        $student->last_name = $request->get('txtLastName');
-        $student->address = $request->get('txtAddress');
+        $user = UserApp::find($id);
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
  
-        $student->update();
+        $user->update();
  
-        return redirect('/student')->with('success', 'Student updated successfully');
+        return redirect('/userapp')->with('success', 'User updated successfully');
     }
  
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(UserApp $user)
     {
         //
         $student->delete();
-        return redirect('/student')->with('success', 'Student deleted successfully');
+        return redirect('/user')->with('success', 'User deleted successfully');
     }
 }
 ?>
