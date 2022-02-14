@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    protected $table = 'user_cart';
+    protected $fillable = ['id_game', 'id_user'];
+
     use HasFactory;
 }

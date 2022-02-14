@@ -92,7 +92,7 @@ class UserApiController extends Controller
     
             $user->email = is_null($request->email) ? $user->email : $request->email;
             $user->password = is_null($request->password) ? $user->password : $request->password;
-            $game->save();
+            $user->save();
     
             return response()->json([
               "message" => "records updated successfully"

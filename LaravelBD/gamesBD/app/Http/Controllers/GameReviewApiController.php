@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GameWithReview;
 
-class GameReviewApiControllerextends Controller
+class GameReviewApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class GameReviewApiControllerextends Controller
     {
         //
         $review = GameWithReview::get()->toJson(JSON_PRETTY_PRINT);
-        return response($user, 200);
+        return response($review, 200);
     }
 
     /**
@@ -59,7 +59,7 @@ class GameReviewApiControllerextends Controller
         //
         if (GameWithReview::where('id', $id)->exists()) {
             $review = GameWithReview::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
-            return response($user, 200);
+            return response($review, 200);
           } else {
             return response()->json([
               "message" => "Review not found"
@@ -94,7 +94,7 @@ class GameReviewApiControllerextends Controller
             $review->id_game = is_null($request->id_game) ? $review->id_game : $request->id_game;
             $review->id_user = is_null($request->id_user) ? $review->id_user : $request->id_user;
             $review->post = is_null($request->post) ? $review->post : $request->post;
-            $game->save();
+            $review->save();
     
             return response()->json([
               "message" => "records updated successfully"
