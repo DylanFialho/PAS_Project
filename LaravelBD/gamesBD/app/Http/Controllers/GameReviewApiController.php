@@ -27,12 +27,13 @@ class GameReviewApiControllerextends Controller
     public function create(Request $request)
     {
         $review = new GameWithReview;
-        $review->email = $request->email;
-        $review->password = $request->password;
+        $review->ip_game = $request->ip_game;
+        $review->id_user = $request->id_user;
+        $review->post = $request->post;
         $review->save();
 
         return response()->json([
-            "message" => "user record created"
+            "message" => "Review record created"
         ], 201);
     }
 
@@ -50,18 +51,18 @@ class GameReviewApiControllerextends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserApp  $user
+     * @param  \App\Models\GameWithReview  $review
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        if (UserApp::where('id', $id)->exists()) {
-            $user = UserApp::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+        if (GameWithReview::where('id', $id)->exists()) {
+            $review = GameWithReview::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($user, 200);
           } else {
             return response()->json([
-              "message" => "User not found"
+              "message" => "Review not found"
             ], 404);
           }    
     }
@@ -69,10 +70,10 @@ class GameReviewApiControllerextends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserApp  $user
+     * @param  \App\Models\GameWithReview  $review
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserApp $user)
+    public function edit(GameWithReview $review)
     {
         //
     }
@@ -81,17 +82,18 @@ class GameReviewApiControllerextends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserApp  $user
+     * @param  \App\Models\GameWithReview  $review
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
-        if (UserApp::where('id', $id)->exists()) {
-            $user = UserApp::find($id);
+        if (GameWithReview::where('id', $id)->exists()) {
+            $review = GameWithReview::find($id);
     
-            $user->email = is_null($request->email) ? $user->email : $request->email;
-            $user->password = is_null($request->password) ? $user->password : $request->password;
+            $review->id_game = is_null($request->id_game) ? $review->id_game : $request->id_game;
+            $review->id_user = is_null($request->id_user) ? $review->id_user : $request->id_user;
+            $review->post = is_null($request->post) ? $review->post : $request->post;
             $game->save();
     
             return response()->json([
@@ -99,7 +101,7 @@ class GameReviewApiControllerextends Controller
             ], 200);
           } else {
             return response()->json([
-              "message" => "User not found"
+              "message" => "Review not found"
             ], 404);
           }
     }
@@ -107,22 +109,22 @@ class GameReviewApiControllerextends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserApp  $user
+     * @param  \App\Models\GameWithReview  $review
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        if(UserApp::where('id', $id)->exists()) {
-            $user = UserApp::find($id);
-            $user->delete();
+        if(GameWithReview::where('id', $id)->exists()) {
+            $review = GameWithReview::find($id);
+            $review->delete();
     
             return response()->json([
               "message" => "records deleted"
             ], 202);
           } else {
             return response()->json([
-              "message" => "Student not found"
+              "message" => "Review not found"
             ], 404);
           }
     }
