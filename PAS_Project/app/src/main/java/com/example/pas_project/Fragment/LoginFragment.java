@@ -5,16 +5,19 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.pas_project.R;
+import com.example.pas_project.ViewModel.LoginFragmentViewModel;
 
 
 public class LoginFragment extends Fragment {
@@ -24,6 +27,10 @@ public class LoginFragment extends Fragment {
    private Button button_login;
    private TextView textView_login , textView_go_to_register;
 
+   private EditText editTextEmailAddrees;
+   private EditText editTextTextPassword;
+
+    private LoginFragmentViewModel loginFragmentModelViewModel = new ViewModelProvider(this).get(LoginFragmentViewModel.class);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,11 +48,22 @@ public class LoginFragment extends Fragment {
         this.textView_login = view.findViewById(R.id.textView9);
         this.textView_go_to_register = view.findViewById(R.id.textView2);
 
+        this.editTextEmailAddrees = view.findViewById(R.id.editTextEmailAddrees);
+        this.editTextTextPassword = view.findViewById(R.id.editTextTextPassword);
+
         fun_animataion(imageView);
         fun_animataion(linearLayout_EditText);
         fun_animataion(button_login);
         fun_animataion(textView_login);
         fun_animataion(textView_go_to_register);
+
+        this.button_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginFragmentModelViewModel.login(view.getContext(),view,editTextEmailAddrees.getText().toString(),editTextEmailAddrees.getText().toString());
+            }
+        });
+
 
     }
 
