@@ -15,21 +15,27 @@ class UserApiController extends Controller
     public function index()
     {
         //
-        $user = UserApp::all();
-        return view('user.list', compact('user','user'));
+        $user = UserApp::get()->toJson(JSON_PRETTY_PRINT);
+        return response($user, 200);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-        return view('user.create');
+        $user = new UserApp;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return response()->json([
+            "message" => "user record created"
+        ], 201);
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,81 +45,85 @@ class UserApiController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'email'=>'required',
-            'password'=> 'required'
-        ]);
- 
-        $student = new Student([
-            'email' => $request->get('email'),
-            'password'=> $request->get('password')
-        ]);
- 
-        $student->save();
-        return redirect('/user_apps')->with('success', 'Student has been added');
     }
- 
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
         //
-        return view('user.view',compact('user'));
+        if (UserApp::where('id', $id)->exists()) {
+            $user = UserApp::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($user, 200);
+          } else {
+            return response()->json([
+              "message" => "User not found"
+            ], 404);
+          }    
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(UserApp $user)
     {
         //
-        return view('user.edit',compact('user'));
     }
- 
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserApp  $user
+     * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         //
- 
-        $request->validate([
-            'email'=>'required',
-            'password'=> 'required'
-        ]);
- 
- 
-        $user = UserApp::find($id);
-        $user->email = $request->get('email');
-        $user->password = $request->get('password');
- 
-        $user->update();
- 
-        return redirect('/user_apps')->with('success', 'User updated successfully');
+        if (UserApp::where('id', $id)->exists()) {
+            $user = UserApp::find($id);
+    
+            $user->email = is_null($request->email) ? $user->email : $request->email;
+            $user->password = is_null($request->password) ? $user->password : $request->password;
+            $game->save();
+    
+            return response()->json([
+              "message" => "records updated successfully"
+            ], 200);
+          } else {
+            return response()->json([
+              "message" => "User not found"
+            ], 404);
+          }
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserApp  $user
+     * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserApp $user)
+    public function destroy($id)
     {
         //
-        $student->delete();
-        return redirect('/user')->with('success', 'User deleted successfully');
+        if(UserApp::where('id', $id)->exists()) {
+            $user = UserApp::find($id);
+            $user->delete();
+    
+            return response()->json([
+              "message" => "records deleted"
+            ], 202);
+          } else {
+            return response()->json([
+              "message" => "Student not found"
+            ], 404);
+          }
     }
 }
-?>
