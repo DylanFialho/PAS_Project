@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserApp extends Model
 {
-    protected $table = 'userapp';
+    protected $table = 'user_apps';
 
     protected $fillable = ['email', 'password'];
 
