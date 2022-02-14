@@ -1,11 +1,11 @@
 package com.example.pas_project.model;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
-import android.os.Bundle;
 
 import com.example.pas_project.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMain);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMain);
 
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
     }

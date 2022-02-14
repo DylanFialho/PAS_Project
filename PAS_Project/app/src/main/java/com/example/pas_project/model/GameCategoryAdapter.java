@@ -1,26 +1,20 @@
 package com.example.pas_project.model;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.pas_project.R;
 
 import java.util.List;
 
-public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapter.ViewHolder>{
+public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapter.ViewHolder> {
 
     private final Context context;
     private List<GameListObject> gameList;
@@ -56,14 +50,14 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private View root;
-        private TextView categoryTextView;
-        private RecyclerView recyclerView;
+        private final TextView categoryTextView;
+        private final RecyclerView recyclerView;
 
-        public ViewHolder(@NonNull View itemView){
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             this.categoryTextView = root.findViewById(R.id.categoryTextView);
-            this.recyclerView = root.findViewById(R.id.recyclerViewCategory );
+            this.recyclerView = root.findViewById(R.id.recyclerViewCategory);
         }
 
         public View getRoot() {

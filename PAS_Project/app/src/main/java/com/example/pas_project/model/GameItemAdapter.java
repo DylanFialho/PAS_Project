@@ -1,12 +1,9 @@
 package com.example.pas_project.model;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,9 +15,9 @@ import com.example.pas_project.R;
 
 import java.util.List;
 
-public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHolder>{
+public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHolder> {
     private final Context context;
-    private List<Game> gameList;
+    private final List<Game> gameList;
 
     public GameItemAdapter(Context context, List<Game> gameList) {
         this.context = context;
@@ -54,10 +51,10 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private View root;
-        private ImageView gameImageView;
-        private TextView textViewTitle;
-        private TextView textViewPrice;
+        private final View root;
+        private final ImageView gameImageView;
+        private final TextView textViewTitle;
+        private final TextView textViewPrice;
 
         public ViewHolder(@NonNull View gameView) {
             super(gameView);
@@ -71,8 +68,8 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHo
             return root;
         }
 
-        public ImageView getGameImageView(){
-            return  gameImageView;
+        public ImageView getGameImageView() {
+            return gameImageView;
         }
 
         public TextView getTextViewTitle() {

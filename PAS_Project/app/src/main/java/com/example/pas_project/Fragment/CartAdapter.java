@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pas_project.R;
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.GameCart;
 
 import java.util.List;
 
@@ -26,9 +27,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
 
     private final Context context;
-    private List<Game> gameList;
+    private List<GameCart> gameList;
 
-    public CartAdapter(Context context, List<Game> gameList) {
+    public CartAdapter(Context context, List<GameCart> gameList) {
         this.context = context;
         this.gameList = gameList;
     }
@@ -43,7 +44,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
 
-        Game game = this.gameList.get(position);
+        GameCart game = this.gameList.get(position);
 
         Glide.with(context).load(game.getImgURL()).into(holder.getGameImageView());
         holder.getTextViewTitle().setText(game.getTitle());
@@ -53,7 +54,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, game.getTitle() + "eliminado", Toast.LENGTH_SHORT).show();
-                game.setInCart(false);
                 updateList(gameList);
             }
         });
@@ -65,9 +65,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         return this.gameList.size();
     }
 
-    public void updateList(List<Game> newGames) {
+    public void updateList(List<GameCart> newGames) {
         this.gameList = newGames;
-        this.notifyDataSetChanged();
+        this.notifyItemRangeInserted(0, newGames.size());
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -76,7 +76,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private ImageView gameImageView;
         private TextView textViewTitle;
         private TextView textViewPrice;
-        private ImageButton button;
+        private Button button;
 
         public ViewHolder(@NonNull View gameView) {
             super(gameView);
@@ -103,7 +103,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             return textViewPrice;
         }
 
-        public ImageButton getButton() {
+        public Button getButton() {
             return button;
         }
     }

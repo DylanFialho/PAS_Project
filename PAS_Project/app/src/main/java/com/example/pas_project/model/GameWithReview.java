@@ -13,7 +13,7 @@ public class GameWithReview {
     @Relation(parentColumn = "id", entityColumn = "gameId")
     private List<Review> reviewList;
 
-    public GameWithReview(Game game, List<Review> reviewList){
+    public GameWithReview(Game game, List<Review> reviewList) {
         this.game = game;
         this.reviewList = reviewList;
     }

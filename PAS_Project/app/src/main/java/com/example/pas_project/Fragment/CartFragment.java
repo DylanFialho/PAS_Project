@@ -1,6 +1,7 @@
 package com.example.pas_project.Fragment;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -19,7 +20,11 @@ import android.widget.Button;
 
 import com.example.pas_project.ViewModel.CartViewModel;
 import com.example.pas_project.R;
+import com.example.pas_project.ViewModel.HomeViewModel;
+import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.database.AppDatabase;
+
+import java.util.List;
 
 public class CartFragment extends Fragment {
 
@@ -42,26 +47,19 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
         button = view.findViewById(R.id.buttonPay);
-        recyclerView = view.findViewById(R.id.recyclerViewCart);
+        recyclerView = view.findViewById(R.id.recyclerCart);
 
-        Toolbar toolbar = view.findViewById(R.id.toolbar2);
-
-        toolbar.setTitle("Carrinho");
-
-        cartAdapter = AppDatabase.getInstance(this).getGameDao().getAllInCart();
-
-        recyclerView.setAdapter(cartAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        cartAdapter.updateList(AppDatabase.getInstance(this).getGameDao().getAllInCart());
-
-        button.setOnClickListener(new View.OnClickListener() {
+        mViewModel.updateGames().observe(getViewLifecycleOwner(), new Observer<List<GameCart>>() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CartActivity.this, PaymentActivity.class));
+            public void onChanged(List<GameCart> GameCarts) {
+                cartAdapter.updateList(GameCarts);
             }
         });
+
+        recyclerView.setAdapter(cartAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
     }
 }

@@ -8,7 +8,6 @@ public class User {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
-
     private String username;
     private String password;
     private String url;

@@ -1,6 +1,7 @@
 package com.example.pas_project.model.database;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -9,6 +10,7 @@ import com.example.pas_project.model.Review;
 
 import java.util.List;
 
+@Dao
 public interface ReviewDao {
 
     @Query("SELECT * FROM Review WHERE id = :idReview")
