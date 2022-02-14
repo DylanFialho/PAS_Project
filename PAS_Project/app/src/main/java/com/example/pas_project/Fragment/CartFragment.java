@@ -49,7 +49,7 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
-        button = view.findViewById(R.id.buttonPay);
+
         recyclerView = view.findViewById(R.id.recyclerCart);
 
         mViewModel.updateGames().observe(getViewLifecycleOwner(), new Observer<List<GameCart>>() {
