@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('game', ApiController::class);
+
+Route::resource('user', UserApiController::class);
+
+Route::resource('review', GameReviewApiController::class);
+
+Route::resource('cart', CartController::class);
