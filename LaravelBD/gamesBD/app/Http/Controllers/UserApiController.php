@@ -45,12 +45,12 @@ class UserApiController extends Controller
         ]);
  
         $student = new Student([
-            'email' => $request->get('txtFirstName'),
-            'password'=> $request->get('txtLastName')
+            'email' => $request->get('email'),
+            'password'=> $request->get('password')
         ]);
  
         $student->save();
-        return redirect('/userapps')->with('success', 'Student has been added');
+        return redirect('/user_apps')->with('success', 'Student has been added');
     }
  
     /**
@@ -100,7 +100,7 @@ class UserApiController extends Controller
  
         $user->update();
  
-        return redirect('/userapp')->with('success', 'User updated successfully');
+        return redirect('/user_apps')->with('success', 'User updated successfully');
     }
  
     /**
