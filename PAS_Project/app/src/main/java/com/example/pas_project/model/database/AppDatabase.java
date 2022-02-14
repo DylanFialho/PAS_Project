@@ -11,7 +11,7 @@ import com.example.pas_project.model.Review;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.GameCart;
 
-@Database(entities = {Game.class, User.class, Review.class, GameCart.class}, version = 2)
+@Database(entities = {Game.class, User.class, Review.class, GameCart.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract GameDao getGameDao();

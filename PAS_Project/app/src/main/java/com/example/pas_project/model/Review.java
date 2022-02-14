@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Review {
 
-    /*@PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     private long id;
     private String userName;
     private String content;
@@ -49,5 +49,5 @@ public class Review {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }*/
+    }
 }

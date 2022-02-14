@@ -10,7 +10,7 @@ public class GameWithReview {
     @Embedded
     private Game game;
 
-    @Relation(parentColumn = "id", entityColumn = "gameId")
+    @Relation(parentColumn = "id", entityColumn = "id")
     private List<Review> reviewList;
 
     public GameWithReview(Game game, List<Review> reviewList) {

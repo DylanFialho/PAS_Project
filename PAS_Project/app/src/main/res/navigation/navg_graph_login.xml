@@ -2,24 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navg_graph_login"
-    app:startDestination="@id/choiceFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.pas_project.Fragment.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment_to_nav_graph"
-            app:destination="@id/nav_graph" />
-    </fragment>
-    <fragment
-        android:id="@+id/choiceFragment"
-        android:name="com.example.pas_project.Fragment.ChoiceFragment"
-        android:label="ChoiceFragment" >
-        <action
-            android:id="@+id/action_choiceFragment_to_registerFragment"
+            android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_choiceFragment_to_pub1Fragment"
+            android:id="@+id/action_loginFragment_to_pub1Fragment"
             app:destination="@id/pub1Fragment" />
     </fragment>
     <fragment

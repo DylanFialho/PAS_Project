@@ -41,7 +41,7 @@ public class Repository {
 
                     Toast.makeText(context, "Login Efectuado", Toast.LENGTH_LONG).show();
                     NavController navController = Navigation.findNavController(view);
-                    navController.navigate(R.id.action_loginFragment_to_nav_graph);
+                    navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
 
 
                 }
