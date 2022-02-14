@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -31,8 +30,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="80dp"
+                android:alpha="0"
                 android:layout_weight="1"
-                android:src="@drawable/login_img2" />
+                android:src="@drawable/login_img2"
+                android:translationY="-200dp" />
 
         </LinearLayout>
 
@@ -43,9 +44,11 @@
             android:layout_weight="0.5"
             android:gravity="center_horizontal"
             android:text="Registar"
+            android:alpha="0"
             android:textColor="#FFFFFF"
             android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:translationY="-200dp" />
 
     </LinearLayout>
 
@@ -56,38 +59,55 @@
         android:layout_margin="30dp"
         android:layout_weight="0.5"
         android:background="@drawable/background_linear"
+        android:alpha="0"
         android:elevation="10dp"
         android:orientation="vertical"
+        android:translationY="-200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="10"
-            android:hint="Digite o seu nome"
-            android:inputType="textPersonName"
-            android:padding="24sp" />
-
-        <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/editTextEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:ems="10"
             android:hint="Digite o seu email"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:padding="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/shadowColor" />
+
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:ems="10"
             android:hint="Digite a sua password"
+            android:inputType="textEmailAddress"
+            android:padding="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/shadowColor" />
+
+        <EditText
+            android:id="@+id/editTextTextPasswordRegisterConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:hint="Confirme a sua password"
             android:inputType="textPassword"
             android:padding="24sp" />
 
@@ -102,7 +122,9 @@
         android:enabled="false"
         android:padding="15dp"
         android:text="Registar"
+        android:alpha="0"
         android:textColor="#757575"
+        android:translationY="-200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />

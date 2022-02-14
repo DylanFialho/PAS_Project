@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -78,9 +77,16 @@
             android:inputType="textEmailAddress"
             android:padding="24sp" />
 
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@color/shadowColor"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp" />
+
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextTextPasswordRegisterConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -108,11 +114,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewGoToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0"
-        android:text="Se nÃ£o tens conta,Regista-te!"
+        android:text="Se não tens conta,Regista-te!"
         android:translationY="-200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

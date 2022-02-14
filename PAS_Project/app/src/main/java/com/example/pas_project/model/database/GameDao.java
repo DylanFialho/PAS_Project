@@ -14,6 +14,9 @@ import com.example.pas_project.model.GameCart;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.http.GET;
+
 @Dao
 public interface GameDao {
 
@@ -31,4 +34,6 @@ public interface GameDao {
 
     @Insert(onConflict = REPLACE)
     void addGameToCart(List<GameCart> GameCart);
+
+
 }

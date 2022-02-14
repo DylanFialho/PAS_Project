@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,10 +49,10 @@ public class LoginFragment extends Fragment {
         this.linearLayout_EditText = view.findViewById(R.id.linearLayout3);
         this.button_login = view.findViewById(R.id.button3);
         this.textView_login = view.findViewById(R.id.textView9);
-        this.textView_go_to_register = view.findViewById(R.id.textView2);
+        this.textView_go_to_register = view.findViewById(R.id.textViewGoToRegister);
 
         this.editTextEmailAddrees = view.findViewById(R.id.editTextEmailAddrees);
-        this.editTextTextPassword = view.findViewById(R.id.editTextTextPassword);
+        this.editTextTextPassword = view.findViewById(R.id.editTextTextPasswordRegisterConfirm);
 
         fun_animataion(imageView);
         fun_animataion(linearLayout_EditText);
@@ -62,6 +64,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 loginFragmentModelViewModel.login(view.getContext(),view,editTextEmailAddrees.getText().toString(),editTextEmailAddrees.getText().toString());
+            }
+        });
+
+        this.textView_go_to_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.action_loginFragment_to_registerFragment);
             }
         });
 
