@@ -19,9 +19,6 @@ public interface GameService {
     @Query("email") String email,
     @Query("password") String password);
 
-    @POST
-
-
     @GET("games/")
     Call<List<Game>> getGames();
 
