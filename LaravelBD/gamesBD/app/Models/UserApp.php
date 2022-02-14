@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserApp extends Model
 {
-    protected $table = 'userapp';
+    protected $table = 'user_apps';
 
-    protected $fillable = ['url', 'username', 'email', 'password'];
+    protected $fillable = ['email', 'password'];
 
     use HasFactory;
 }
