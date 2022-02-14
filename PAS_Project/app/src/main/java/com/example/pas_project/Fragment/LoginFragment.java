@@ -30,7 +30,7 @@ public class LoginFragment extends Fragment {
    private EditText editTextEmailAddrees;
    private EditText editTextTextPassword;
 
-    private LoginFragmentViewModel loginFragmentModelViewModel = new ViewModelProvider(this).get(LoginFragmentViewModel.class);
+    private LoginFragmentViewModel loginFragmentModelViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +41,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        loginFragmentModelViewModel = new ViewModelProvider(this).get(LoginFragmentViewModel.class);
 
         this.imageView = view.findViewById(R.id.imageView4);
         this.linearLayout_EditText = view.findViewById(R.id.linearLayout3);
