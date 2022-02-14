@@ -12,15 +12,17 @@ public class Game {
     private String title;
     private String description;
     private String category;
+    private String console;
     private float price;
     private boolean isInCart;
 
-    public Game(long id, String imgURL, String title, String description, String category, float price, boolean isInCart) {
+    public Game(long id, String imgURL, String title, String description, String category, String console, float price, boolean isInCart) {
         this.id = id;
         this.imgURL = imgURL;
         this.title = title;
         this.description = description;
         this.category = category;
+        this.console = console;
         this.price = price;
         this.isInCart = isInCart;
     }
@@ -63,6 +65,14 @@ public class Game {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getConsole() {
+        return console;
+    }
+
+    public void setConsole(String console) {
+        this.console = console;
     }
 
     public float getPrice() {

@@ -29,8 +29,10 @@ class ApiController extends Controller
         $game = new Game;
         $game->url = $request->url;
         $game->name = $request->name;
+        $game->description = $request->description;
         $game->category = $request->category;
         $game->console = $request->console;
+        $game->price = $request->price;
         $game->save();
 
         return response()->json([
@@ -94,8 +96,10 @@ class ApiController extends Controller
     
             $game->url = is_null($request->url) ? $game->url : $request->url;
             $game->name = is_null($request->name) ? $game->name : $request->name;
+            $game->description = is_null($request->description) ? $game->description : $request->description;
             $game->category = is_null($request->category) ? $game->category : $request->category;
             $game->console = is_null($request->console) ? $game->console : $request->console;
+            $game->price = is_null($request->price) ? $game->price : $request->price;
             $game->save();
     
             return response()->json([
