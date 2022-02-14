@@ -5,10 +5,17 @@
       <map>
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/drawable/search_background.xml" value="0.373" />
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/activity_login.xml" value="0.3723958333333333" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/activity_main.xml" value="0.1513467293715263" />
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/cart_fragment.xml" value="0.3723958333333333" />
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/cart_item.xml" value="0.3723958333333333" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/category_store_item.xml" value="0.1513467293715263" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_choice.xml" value="0.1513467293715263" />
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_login.xml" value="0.18110435663627153" />
         <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/home_fragment.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/news_fragment.xml" value="0.1513467293715263" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/news_item.xml" value="0.1513467293715263" />
+        <entry key="..\:/Users/USER/Documents/GitHub/PAS_Project/PAS_Project/app/src/main/res/layout/store_item.xml" value="0.1513467293715263" />
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/drawable/constraint_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3828125" />
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/drawable/search_background.xml" value="0.3828125" />
