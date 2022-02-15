@@ -7,6 +7,88 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+
+  public function index()
+    {
+        //
+        $game = Game::all();
+        return view('game.list', compact('game','games'));
+    }
+
+    public function create()
+    {
+        //
+        return view('game.create');
+    }
+
+    public function store(Request $request)
+    {
+        //
+        $request->validate([
+            'txtTitle'=>'required',
+            'txtDescription'=> 'required',
+            'txtCategory' => 'required',
+            'txtConsole' => 'required',
+            'txtPrice' => 'required',
+            'txtImage' => 'required'
+        ]);
+
+        $game = new Game([
+            'name' => $request->get('txtTitle'),
+            'description'=> $request->get('txtDescription'),
+            'category'=> $request->get('txtCategory'),
+            'console'=> $request->get('txtConsole'),
+            'price'=> $request->get('txtPrice'),
+            'imurlage'=> $request->get('txtImage')
+        ]);
+
+        $game->save();
+        return redirect('/game')->with('success', 'Game has been added');
+    }
+
+    public function show(Game $game)
+    {
+        return view('game.view',compact('game'));
+    }
+
+    public function edit(Game $game)
+    {
+        return view('game.edit',compact('game'));
+    }
+
+    public function update(Request $request,$id)
+    {
+
+        $request->validate([
+            'txtTitle'=>'required',
+            'txtDescription'=> 'required',
+            'txtCategory' => 'required',
+            'txtConsole' => 'required',
+            'txtPrice' => 'required',
+            'txtImage' => 'required',
+        ]);
+
+
+        $game = Game::find($id);
+        $game->name = $request->get('txtTitle');
+        $game->description = $request->get('txtDescription');
+        $game->category = $request->get('txtCategory');
+        $game->console = $request->get('txtConsole');
+        $game->price = $request->get('txtPrice');
+        $game->url = $request->get('txtImage');
+
+        $game->update();
+
+        return redirect('/game')->with('success', 'Game updated successfully');
+    }
+
+    public function destroy(Game $game)
+    {
+        //
+        $game->delete();
+        return redirect('/game')->with('success', 'Game deleted successfully');
+    }
+
     /**
      * Display a listing of the resource.
      *
