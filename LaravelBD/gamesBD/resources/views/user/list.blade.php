@@ -30,7 +30,6 @@
                     <td>{{ ++$i }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
-                    <td><img src="{{$user->url}}" alt="image"  width="120px"></td>
                     <td>
                         <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                             <a class="btn btn-info" href="{{ route('user.show',$user->id) }}">Show</a>
