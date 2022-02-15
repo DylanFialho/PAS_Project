@@ -3,11 +3,10 @@
 @section('content')
 @if (Route::has('login'))
 @auth
-<div class="card-header">{{ __('Editar Livro') }}</div>
+<div class="card-header">{{ __('Editar Jogo') }}</div>
 <div class="col-lg-1"></div>
 <div class="card-body">
 <div class="col-lg-1">
-    <a class="btn btn-primary" href="{{ url('game') }}"> Back</a>
 </div>
     @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -45,6 +44,8 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
+
+<a class="btn btn-primary" href="{{ url('game') }}"> Back</a>
 
 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>

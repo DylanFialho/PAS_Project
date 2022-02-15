@@ -3,7 +3,7 @@
 @section('content')
 @if (Route::has('login'))
 @auth
-    <div class="card-header">{{ __('Jogos') }}</div>
+    <div class="card-header">{{ __('Utilizadores') }}</div>
     <div class="col-lg-1">
     </div>
     <div class="card-body">
@@ -13,35 +13,31 @@
             </div>
         @endif
         <div class="col-lg-1">
-            <a class="btn btn-success" href="{{ route('game.create') }}">Add</a>
+            <a class="btn btn-success" href="{{ route('user.create') }}">Add</a>
         </div>
         <table class="table table-bordered">
             <tr>
                 <th>Id</th>
-                <th>Titulo</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Consolas</th>
-                <th>Preço</th>
-                <th>Imagem</th>
+                <th>Email</th>
+                <th>Password</th>
                 <th>Operações</th>
             </tr>
             @php
                 $i = 0;
             @endphp
-            @foreach ($game as $game)
+            @foreach ($user as $user)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $game->name }}</td>
-                    <td>{{ $game->description }}</td>
-                    <td>{{ $game->category }}</td>
-                    <td>{{ $game->console }}</td>
-                    <td>{{ $game->price }}</td>
-                    <td><img src="{{$game->url}}" alt="image"  width="120px"></td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->description }}</td>
+                    <td>{{ $user->category }}</td>
+                    <td>{{ $user->console }}</td>
+                    <td>{{ $user->price }}</td>
+                    <td><img src="{{$user->url}}" alt="image"  width="120px"></td>
                     <td>
-                        <form action="{{ route('game.destroy',$game->id) }}" method="POST">
-                            <a class="btn btn-info" href="{{ route('game.show',$game->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('game.edit',$game->id) }}">Edit</a>
+                        <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ route('user.show',$user->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>

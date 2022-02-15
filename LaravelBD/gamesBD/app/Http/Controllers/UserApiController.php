@@ -7,12 +7,96 @@ use Illuminate\Http\Request;
 
 class UserApiController extends Controller
 {
+  public function index()
+    {
+        //
+        $user = UserApp::all();
+        return view('user.list', compact('user', 'user'));
+    }
+
+    public function create()
+    {
+        //
+        return view('user.create');
+    }
+
+    public function store(Request $request)
+    {
+        //
+        $request->validate([
+            'txtImage' => 'required',
+            'txtTitle'=>'required',
+            'txtDescription'=> 'required',
+            'txtCategory' => 'required',
+            'txtConsole' => 'required',
+            'txtPrice' => 'required',
+            'txtImage' => 'required'
+        ]);
+
+        $user = new UserApp([
+            'url'=> $request->get('txtImage'),
+            'name' => $request->get('txtTitle'),
+            'description'=> $request->get('txtDescription'),
+            'category'=> $request->get('txtCategory'),
+            'console'=> $request->get('txtConsole'),
+            'price'=> $request->get('txtPrice'),
+        ]);
+
+        $user->save();
+        return redirect('/user')->with('success', 'User has been added');
+    }
+
+    public function show(UserApp $user)
+    {
+        return view('user.view',compact('user'));
+    }
+
+    public function edit(UserApp $user)
+    {
+        return view('user.edit',compact('user'));
+    }
+
+    public function update(Request $request,$id)
+    {
+
+        $request->validate([
+          
+            'txtImage' => 'required',
+            'txtTitle'=>'required',
+            'txtDescription'=> 'required',
+            'txtCategory' => 'required',
+            'txtConsole' => 'required',
+            'txtPrice' => 'required',
+            'txtImage' => 'required'
+        ]);
+
+
+        $user = UserApp::find($id);
+        $user->url = $request->get('txtImage');
+        $user->name = $request->get('txtTitle');
+        $user->description = $request->get('txtDescription');
+        $user->category = $request->get('txtCategory');
+        $user->console = $request->get('txtConsole');
+        $user->price = $request->get('txtPrice');
+
+        $user->update();
+
+        return redirect('/user')->with('success', 'User updated successfully');
+    }
+
+    public function destroy(UserApp $user)
+    {
+        //
+        $user->delete();
+        return redirect('/user')->with('success', 'User deleted successfully');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexApi()
     {
         //
         $user = UserApp::get()->toJson(JSON_PRETTY_PRINT);
@@ -24,7 +108,7 @@ class UserApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function createApi(Request $request)
     {
         $user = new UserApp;
         $user->email = $request->email;
@@ -42,7 +126,7 @@ class UserApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeApi(Request $request)
     {
         //
     }
@@ -53,7 +137,7 @@ class UserApiController extends Controller
      * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showApi($id)
     {
         //
         if (UserApp::where('id', $id)->exists()) {
@@ -72,7 +156,7 @@ class UserApiController extends Controller
      * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserApp $user)
+    public function editApi(UserApp $user)
     {
         //
     }
@@ -84,7 +168,7 @@ class UserApiController extends Controller
      * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateApi(Request $request, $id)
     {
         //
         if (UserApp::where('id', $id)->exists()) {
@@ -110,7 +194,7 @@ class UserApiController extends Controller
      * @param  \App\Models\UserApp  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyApi($id)
     {
         //
         if(UserApp::where('id', $id)->exists()) {
