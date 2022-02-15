@@ -103,7 +103,7 @@
             android:id="@+id/imageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="20dp"
             android:scaleType="fitStart"
             android:src="@drawable/playstation_logo"
@@ -114,7 +114,7 @@
             android:id="@+id/imageButton2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:scaleType="fitStart"
             android:src="@drawable/xbox_logo"
@@ -126,7 +126,7 @@
             android:id="@+id/imageButton3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:scaleType="fitStart"
             android:src="@drawable/nintendo_logo"
@@ -137,25 +137,12 @@
             android:id="@+id/imageButton4"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="80dp"
             android:scaleType="fitStart"
             android:src="@drawable/pc_logo"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="60dp"
-            android:text="Populares"
-            android:textColor="@color/shadowColor"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
