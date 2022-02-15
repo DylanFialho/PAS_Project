@@ -187,7 +187,7 @@ class UserApiController extends Controller
             ], 202);
           } else {
             return response()->json([
-              "message" => "Student not found"
+              "message" => "User not found"
             ], 404);
           }
     }
@@ -197,7 +197,8 @@ class UserApiController extends Controller
           $user = UserApp::where('email', $email)->get()->toJson(JSON_PRETTY_PRINT);
           return response($user, 200);
         } else {
-          return response()->json(["message" => "Utilizador nao existe", 404);
+          return response()->json(["message" => "Utilizador nao existe"]
+          , 404);
         }
   }
 
@@ -206,7 +207,8 @@ class UserApiController extends Controller
         $emailAndPass = UserApp::where('email',$user->email)->where('password',$user->password)->get()->toJson(JSON_PRETTY_PRINT);
         return response(array_values($emailAndPass)[0],200);
     }else{
-        return response()->json(["message" => "Utilizador nao encontrado por email e pass"],404);
+        return response()->json(["message" => "Utilizador nao encontrado por email e pass"]
+        ,404);
     }
   }
 }
