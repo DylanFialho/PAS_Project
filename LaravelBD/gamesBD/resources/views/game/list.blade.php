@@ -1,4 +1,4 @@
-@extends('book.layouts.app')
+@extends('game.layouts.app')
 
 @section('content')
 @if (Route::has('login'))
