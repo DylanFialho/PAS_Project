@@ -22,17 +22,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('games', [ApiController::class, 'index']);
-Route::get('games/{id}', [ApiController::class, 'show']);
-Route::post('games', [ApiController::class, 'create']);
-Route::put('games/{id}', [ApiController::class, 'update']);
-Route::delete('games/{id}', [ApiController::class, 'destroy']);
+Route::get('games', [ApiController::class, 'indexApi']);
+Route::get('games/{id}', [ApiController::class, 'showApi']);
+Route::post('games', [ApiController::class, 'createApi']);
+Route::put('games/{id}', [ApiController::class, 'updateApi']);
+Route::delete('games/{id}', [ApiController::class, 'destroyApi']);
 
-Route::get('user', [UserApiController::class, 'index']);
-Route::get('user/{id}', [UserApiController::class, 'show']);
-Route::post('user', [UserApiController::class, 'create']);
-Route::put('user/{id}', [UserApiController::class, 'update']);
-Route::delete('user/{id}', [UserApiController::class, 'destroy']);
+Route::get('user', [UserApiController::class, 'indexApi']);
+Route::get('user/{id}', [UserApiController::class, 'showApi']);
+Route::post('user', [UserApiController::class, 'createApi']);
+Route::put('user/{id}', [UserApiController::class, 'updateApi']);
+Route::delete('user/{id}', [UserApiController::class, 'destroyApi']);
 
 Route::get('gameReview', [GameReviewApiController::class, 'index']);
 Route::get('gameReview/{id}', [GameReviewApiController::class, 'show']);

@@ -94,7 +94,7 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexApi()
     {
         //
         $games = Game::get()->toJson(JSON_PRETTY_PRINT);
@@ -106,7 +106,7 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function createApi(Request $request)
     {
         $game = new Game;
         $game->url = $request->url;
@@ -128,7 +128,7 @@ class ApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeApi(Request $request)
     {
         //
     }
@@ -139,7 +139,7 @@ class ApiController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showApi($id)
     {
         //
         if (Game::where('id', $id)->exists()) {
@@ -158,7 +158,7 @@ class ApiController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function editApi(Game $game)
     {
         //
     }
@@ -170,7 +170,7 @@ class ApiController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateApi(Request $request, $id)
     {
         //
         if (Game::where('id', $id)->exists()) {
@@ -200,7 +200,7 @@ class ApiController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyApi($id)
     {
         //
         if(Game::where('id', $id)->exists()) {
