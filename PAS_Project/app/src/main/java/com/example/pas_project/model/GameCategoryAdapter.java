@@ -17,7 +17,7 @@ import java.util.List;
 public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapter.ViewHolder> {
 
     private final Context context;
-    private List<GameListObject> gameList;
+    private List<GameListCategory> gameList;
 
     public GameCategoryAdapter(Context context) {
         this.context = context;
@@ -33,9 +33,10 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     @Override
     public void onBindViewHolder(@NonNull GameCategoryAdapter.ViewHolder holder, int position) {
 
-        GameListObject gameListObject = this.gameList.get(position);
+        GameListCategory gameListCategory = this.gameList.get(position);
+        holder.getCategoryTextView().setText(gameListCategory.getCategory());
 
-        GameItemAdapter gameItemAdapter = new GameItemAdapter(context, gameListObject.getGameList());
+        GameItemAdapter gameItemAdapter = new GameItemAdapter(context, gameListCategory.getGameList());
         holder.recyclerView.setAdapter(gameItemAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);

@@ -34,9 +34,9 @@ public class HomeFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerHome);
+        /*RecyclerView recyclerView = view.findViewById(R.id.recyclerHome);
         GameCategoryAdapter categoryAdapter = new GameCategoryAdapter(getContext());
         recyclerView.setAdapter(categoryAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));*/
     }
 }
