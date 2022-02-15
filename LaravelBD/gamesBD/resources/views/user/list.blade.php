@@ -28,11 +28,8 @@
             @foreach ($user as $user)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->description }}</td>
-                    <td>{{ $user->category }}</td>
-                    <td>{{ $user->console }}</td>
-                    <td>{{ $user->price }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->password }}</td>
                     <td><img src="{{$user->url}}" alt="image"  width="120px"></td>
                     <td>
                         <form action="{{ route('user.destroy',$user->id) }}" method="POST">
