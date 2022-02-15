@@ -124,6 +124,10 @@ public class RegisterFragment extends Fragment {
                             registerFragmentViewModel.saveSession(user);
                         }
                     });
+                }if (editTextEmailRegister.getText().toString().isEmpty() || editTextPasswordRegister.getText().toString().isEmpty()
+                || editTextTextPasswordRegisterConfirm .getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Preencha todos os campos", Toast.LENGTH_SHORT);
+                    createUser();
                 }
             }
         });

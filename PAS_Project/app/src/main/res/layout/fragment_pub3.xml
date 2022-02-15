@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".FourthFragment" >
+    android:background="@color/white">
 
 
     <ImageView
@@ -17,7 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha="0"
+        android:translationY="-200dp" />
 
     <TextView
         android:id="@+id/textViewSetText1"
@@ -28,7 +29,9 @@
         android:text="Todas as"
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewSetImage" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSetImage"
+        android:alpha="0"
+        android:translationY="-200dp" />
 
     <TextView
         android:id="@+id/textViewSetText2"
@@ -40,7 +43,9 @@
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSetText1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSetText1"
+        android:alpha="0"
+        android:translationY="-200dp" />
 
     <TextView
         android:id="@+id/textViewSetText3"
@@ -56,7 +61,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSetText2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:alpha="0"
+        android:translationY="-200dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
