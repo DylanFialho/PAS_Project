@@ -11,14 +11,14 @@
             {{ session('status') }}
         </div>
     @endif
-<form action="{{ route('game.store') }}" method="POST">
+<form action="{{ route('user.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="txtTitle">Email:</label>
+            <label for="txtEmail">Email:</label>
             <input type="text" class="form-control" id="txtEmail" placeholder="Email" name="txtEmail">
         </div>
         <div class="form-group">
-            <label for="txtAuthor">Password:</label>
+            <label for="txtPassword">Password:</label>
             <input type="text" class="form-control" id="txtPassword" placeholder="Password" name="txtPassword">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>

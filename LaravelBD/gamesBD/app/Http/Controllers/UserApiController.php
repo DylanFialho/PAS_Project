@@ -24,22 +24,13 @@ class UserApiController extends Controller
     {
         //
         $request->validate([
-            'txtImage' => 'required',
-            'txtTitle'=>'required',
-            'txtDescription'=> 'required',
-            'txtCategory' => 'required',
-            'txtConsole' => 'required',
-            'txtPrice' => 'required',
-            'txtImage' => 'required'
+            'txtEmail' => 'required',
+            'txtPassword'=>'required'
         ]);
 
         $user = new UserApp([
-            'url'=> $request->get('txtImage'),
-            'name' => $request->get('txtTitle'),
-            'description'=> $request->get('txtDescription'),
-            'category'=> $request->get('txtCategory'),
-            'console'=> $request->get('txtConsole'),
-            'price'=> $request->get('txtPrice'),
+            'email'=> $request->get('txtEmail'),
+            'password' => $request->get('txtPassword')
         ]);
 
         $user->save();
@@ -61,24 +52,14 @@ class UserApiController extends Controller
 
         $request->validate([
           
-            'txtImage' => 'required',
-            'txtTitle'=>'required',
-            'txtDescription'=> 'required',
-            'txtCategory' => 'required',
-            'txtConsole' => 'required',
-            'txtPrice' => 'required',
-            'txtImage' => 'required'
+            'txtEmail' => 'required',
+            'txtPassword'=>'required'
         ]);
 
 
         $user = UserApp::find($id);
-        $user->url = $request->get('txtImage');
-        $user->name = $request->get('txtTitle');
-        $user->description = $request->get('txtDescription');
-        $user->category = $request->get('txtCategory');
-        $user->console = $request->get('txtConsole');
-        $user->price = $request->get('txtPrice');
-
+        $user->email = $request->get('txtEmail');
+        $user->password = $request->get('txtPassword');
         $user->update();
 
         return redirect('/user')->with('success', 'User updated successfully');
