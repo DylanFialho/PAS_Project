@@ -43,8 +43,8 @@
         android:name="com.example.pas_project.Fragment.RegisterFragment"
         android:label="RegisterFragment" >
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_registerFragment_to_pub1Fragment"
+            app:destination="@id/pub1Fragment" />
     </fragment>
     <include app:graph="@navigation/nav_graph" />
 </navigation>

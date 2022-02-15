@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.LoginFragmentViewModel;
 import com.example.pas_project.ViewModel.RegisterFragmentViewModel;
+import com.example.pas_project.model.User;
 
 public class RegisterFragment extends Fragment {
 
@@ -90,31 +92,40 @@ public class RegisterFragment extends Fragment {
         fun_animataion(textView_register);
 
 
-        this.button_register.setOnClickListener(new View.OnClickListener() {
+        button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                userPassword = editTextPasswordRegister.getText().toString();
-                userPasswordConfirm = editTextTextPasswordRegisterConfirm.getText().toString();
-
-                if(userPassword == userPasswordConfirm)
-                {
-                    Toast.makeText(getContext(), "Registo concluído", Toast.LENGTH_LONG).show();
-                    NavController navController = Navigation.findNavController(view);
-                    navController.navigate(R.id.action_registerFragment_to_loginFragment);
-                }
-                else
-                {
-                    Toast.makeText(getContext(), "Passwords não coincidem", Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(getContext(), "Registo concluído", Toast.LENGTH_LONG).show();
+                createUser();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.action_registerFragment_to_pub1Fragment);
             }
         });
-
-        //registerFragmentViewModel.register(view.getContext(),view,editTextEmailRegister.getText().toString(),editTextPasswordRegister.getText().toString());
-
     }
 
     void fun_animataion(View view) {
         view.animate().alpha(1).setDuration(1500).translationY(0);
+    }
+
+    public void createUser() {
+        registerFragmentViewModel.getUserByEmail(getContext(), editTextEmailRegister.getText().toString()).observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                if (editTextEmailRegister.getText().toString().isEmpty() ||
+                        editTextPasswordRegister.getText().toString().isEmpty() &&
+                                editTextPasswordRegister.equals(editTextPasswordRegister)) {
+                    Toast.makeText(getContext(), "Passwords não coincidem", Toast.LENGTH_SHORT);
+                }else {
+                    User newUser = new User(0, editTextEmailRegister.getText().toString(), editTextPasswordRegister.getText().toString());
+                    registerFragmentViewModel.createUser(newUser);
+                    registerFragmentViewModel.getUserByEmail(getContext(), newUser.getEmail()).observe(RegisterFragment.this, new Observer<User>() {
+                        @Override
+                        public void onChanged(User user) {
+                            registerFragmentViewModel.saveSession(user);
+                        }
+                    });
+                }
+            }
+        });
     }
 }

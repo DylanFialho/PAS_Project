@@ -5,12 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.example.pas_project.IRepoResponse;
 import com.example.pas_project.model.Game;
-import com.example.pas_project.model.GameRepository;
-import com.example.pas_project.model.GameWithReview;
+import com.example.pas_project.repository.GameRepository;
 import com.example.pas_project.model.GameCart;
 
 import java.util.List;

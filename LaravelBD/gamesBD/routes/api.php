@@ -33,6 +33,8 @@ Route::get('user/{id}', [UserApiController::class, 'showApi']);
 Route::post('user', [UserApiController::class, 'createApi']);
 Route::put('user/{id}', [UserApiController::class, 'updateApi']);
 Route::delete('user/{id}', [UserApiController::class, 'destroyApi']);
+Route::get('user/{email}', [UserApiController::class, 'getUserByEmailApi']);
+Route::post('user/login', [UserApiController::class, 'getUserByPasswordAndEmail']);
 
 Route::get('gameReview', [GameReviewApiController::class, 'index']);
 Route::get('gameReview/{id}', [GameReviewApiController::class, 'show']);

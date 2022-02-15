@@ -191,4 +191,22 @@ class UserApiController extends Controller
             ], 404);
           }
     }
+
+    public function getUserByEmailApi($email){
+      if (UserApp::where('email', $email)->exists()) {
+          $user = UserApp::where('email', $email)->get()->toJson(JSON_PRETTY_PRINT);
+          return response($user, 200);
+        } else {
+          return response()->json(["message" => "Utilizador nao existe", 404);
+        }
+  }
+
+  public function getUserByPasswordAndEmail($user){
+    if (UserApp::where('email',$user->email)->where('password',$user->password)->exists()) {
+        $emailAndPass = UserApp::where('email',$user->email)->where('password',$user->password)->get()->toJson(JSON_PRETTY_PRINT);
+        return response(array_values($emailAndPass)[0],200);
+    }else{
+        return response()->json(["message" => "Utilizador nao encontrado por email e pass"],404);
+    }
+  }
 }

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DataSource {
 
-    private final static String WEB_URL = "http://0.0.0.0:8000/api/";
+    private final static String WEB_URL = "http://10.0.0.2:8000/api/";
 
     private static final Retrofit retrofit = new Retrofit.Builder().baseUrl(WEB_URL).
             addConverterFactory(GsonConverterFactory.create()).
