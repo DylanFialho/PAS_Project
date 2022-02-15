@@ -29,7 +29,7 @@
             @php
                 $i = 0;
             @endphp
-            @foreach ($games as $game)
+            @foreach ($game as $game)
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $game->name }}</td>

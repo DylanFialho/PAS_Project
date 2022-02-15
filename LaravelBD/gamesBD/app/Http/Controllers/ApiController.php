@@ -12,7 +12,7 @@ class ApiController extends Controller
     {
         //
         $game = Game::all();
-        return view('game.list', compact('game','games'));
+        return view('game.list', compact('game', 'game'));
     }
 
     public function create()
