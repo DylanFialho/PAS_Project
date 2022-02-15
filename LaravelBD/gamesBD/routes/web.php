@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\UserApiController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +28,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('game', ApiController::class);
 
 Route::resource('user', UserApiController::class);
-
-Route::resource('review', GameReviewApiController::class);
-
-Route::resource('cart', CartController::class);
