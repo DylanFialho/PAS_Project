@@ -1,4 +1,4 @@
-@extends('book.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 @if (Route::has('login'))
@@ -11,7 +11,7 @@
             {{ session('status') }}
         </div>
     @endif
-<form action="{{ route('book.store') }}" method="POST">
+<form action="{{ route('game.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="txtTitle">Titulo:</label>
@@ -35,11 +35,10 @@
         </div>
         <div class="form-group">
             <label for="txtImage">Imagem:</label>
-            <input type="text" class="form-control" id="txtImage" placeholder="Image" name="txtImage" value="{{ $game->url }}">
+            <input type="text" class="form-control" id="txtImage" placeholder="Image" name="txtImage">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
-    {{ __('You are logged in!') }}
 </div>
 
 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

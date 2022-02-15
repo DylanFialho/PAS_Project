@@ -1,4 +1,4 @@
-@extends('book.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 @if (Route::has('login'))
@@ -7,7 +7,7 @@
 <div class="col-lg-1"></div>
 <div class="card-body">
 <div class="col-lg-1">
-    <a class="btn btn-primary" href="{{ url('book') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('game') }}"> Back</a>
 </div>
     @if (session('status'))
         <div class="alert alert-success" role="alert">

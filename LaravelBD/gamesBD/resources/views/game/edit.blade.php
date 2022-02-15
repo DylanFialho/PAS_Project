@@ -1,4 +1,4 @@
-@extends('book.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 @if (Route::has('login'))
@@ -7,7 +7,7 @@
 <div class="col-lg-1"></div>
 <div class="card-body">
 <div class="col-lg-1">
-    <a class="btn btn-primary" href="{{ url('book') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('game') }}"> Back</a>
 </div>
     @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -15,7 +15,7 @@
         </div>
     @endif
 
-<form method="post" action="{{ route('book.update',$book->id) }}" >
+<form method="post" action="{{ route('game.update',$game->id) }}" >
         @method('PATCH')
         @csrf
         <div class="form-group">
@@ -44,7 +44,6 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
-    {{ __('You are logged in!') }}
 </div>
 
 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

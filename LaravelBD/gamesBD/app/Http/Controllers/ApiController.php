@@ -25,6 +25,7 @@ class ApiController extends Controller
     {
         //
         $request->validate([
+            'txtImage' => 'required',
             'txtTitle'=>'required',
             'txtDescription'=> 'required',
             'txtCategory' => 'required',
@@ -34,12 +35,12 @@ class ApiController extends Controller
         ]);
 
         $game = new Game([
+            'url'=> $request->get('txtImage'),
             'name' => $request->get('txtTitle'),
             'description'=> $request->get('txtDescription'),
             'category'=> $request->get('txtCategory'),
             'console'=> $request->get('txtConsole'),
             'price'=> $request->get('txtPrice'),
-            'imurlage'=> $request->get('txtImage')
         ]);
 
         $game->save();
@@ -60,22 +61,24 @@ class ApiController extends Controller
     {
 
         $request->validate([
+          
+            'txtImage' => 'required',
             'txtTitle'=>'required',
             'txtDescription'=> 'required',
             'txtCategory' => 'required',
             'txtConsole' => 'required',
             'txtPrice' => 'required',
-            'txtImage' => 'required',
+            'txtImage' => 'required'
         ]);
 
 
         $game = Game::find($id);
+        $game->url = $request->get('txtImage');
         $game->name = $request->get('txtTitle');
         $game->description = $request->get('txtDescription');
         $game->category = $request->get('txtCategory');
         $game->console = $request->get('txtConsole');
         $game->price = $request->get('txtPrice');
-        $game->url = $request->get('txtImage');
 
         $game->update();
 
