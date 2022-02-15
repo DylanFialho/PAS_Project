@@ -69,7 +69,11 @@ public class LoginFragment extends Fragment {
         this.button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< Updated upstream
                 login();
+=======
+                loginFragmentModelViewModel.login(view.getContext(),view,editTextEmailAddrees.getText().toString(),editTextEmailAddrees.getText().toString());
+>>>>>>> Stashed changes
                 NavController navController = Navigation.findNavController(view);
                 navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
             }
