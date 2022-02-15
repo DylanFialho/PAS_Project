@@ -3,7 +3,7 @@
 @section('content')
 @if (Route::has('login'))
 @auth
-<div class="card-header">{{ __('Editar Livro') }}</div>
+<div class="card-header">{{ __('Editar Utilizador') }}</div>
 <div class="col-lg-1"></div>
 <div class="card-body">
 <div class="col-lg-1">
@@ -18,12 +18,12 @@
         @method('PATCH')
         @csrf
         <div class="form-group">
-            <label for="txtTitle">Email:</label>
+            <label for="txtEmail">Email:</label>
             <input type="text" class="form-control" id="txtEmail" placeholder="Email" name="txtEmail"  value="{{ $user->email }}">
         </div>
         <div class="form-group">
-            <label for="txtPublisher">Password:</label>
-            <input type="text" class="form-control" id="txtPassword" placeholder="Password" name="txtPassword" value="{{ $user->email }}">
+            <label for="txtPassword">Password:</label>
+            <input type="text" class="form-control" id="txtPassword" placeholder="Password" name="txtPassword" value="{{ $user->password }}">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
