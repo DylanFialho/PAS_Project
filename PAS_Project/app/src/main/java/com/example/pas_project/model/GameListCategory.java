@@ -7,7 +7,6 @@ import java.util.List;
 public class GameListCategory {
 
     private String category;
-    @Ignore
     private List<Game> gameList;
 
     public GameListCategory( String category, List<Game> gameList) {
