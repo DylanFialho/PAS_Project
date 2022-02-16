@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameCart;
+import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.GameWithReview;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
@@ -140,7 +141,7 @@ public class GameRepository {
         return userMutableLiveData;
     }
 
-    public LiveData<UserResponse> getUserByPasswordAndEmail(Context context, String email, String password) {
+    public LiveData<UserResponse> getUserByPasswordAndEmail(String email, String password) {
         MutableLiveData<UserResponse> userMutableLiveData = new MutableLiveData<>();
         GameService service = DataSource.getGameService();
         service.getUserByEmailAndPassword(new User(0, password, email)).enqueue(new Callback<UserResponse>() {
@@ -159,5 +160,24 @@ public class GameRepository {
         });
 
         return userMutableLiveData;
+    }
+
+    public LiveData<GameListCategory> getGamesInCategory(String category){
+        GameService gameService = DataSource.getGameService();
+        Call<GameListCategory> call = gameService.getGameCategorys(category);
+
+        call.enqueue(new Callback<GameListCategory>() {
+            @Override
+            public void onResponse(Call<GameListCategory> call, Response<GameListCategory> response) {
+                gameDao.getAllinCategory(category);
+            }
+
+            @Override
+            public void onFailure(Call<GameListCategory> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+        return gameDao.getAllinCategory(category);
     }
 }

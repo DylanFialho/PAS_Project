@@ -2,6 +2,7 @@ package com.example.pas_project.model.remote;
 
 import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
 
@@ -15,11 +16,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface GameService {
-
-    @GET("user")
-    Call<List<User>> login(
-    @Query("email") String email,
-    @Query("password") String password);
+    ///////////////////////////////////////////////////////////////////USER API
 
     @POST("user/")
     Call<User> addUser(@Body User user);
@@ -30,6 +27,10 @@ public interface GameService {
     @POST("user/login")
     Call<UserResponse> getUserByEmailAndPassword(@Body User user);
 
+    @GET("user/{id}/cart")
+    Call<List<GameCart>> getGamesInCart(@Path("id") long id);
+
+    ///////////////////////////////////////////////////////////////////GAMES API
 
     @GET("games/")
     Call<List<Game>> getGames();
@@ -37,7 +38,6 @@ public interface GameService {
     @GET("game/{id}")
     Call<Game> getGameId(@Path("id") long id);
 
-    @GET("user/{id}/cart")
-    Call<List<GameCart>> getGamesInCart(@Path("id") long id);
-
+    @GET("game/{category}")
+    Call<GameListCategory> getGameCategorys(@Path("category") String category);
 }

@@ -48,6 +48,13 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
         return this.gameList.size();
     }
 
+    public void update(List<GameListCategory> gameListCategory){
+        if (gameListCategory != null) {
+            this.gameList = gameListCategory;
+            notifyDataSetChanged();
+        }
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private View root;

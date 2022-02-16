@@ -27,8 +27,8 @@ public class LoginFragmentViewModel extends AndroidViewModel {
         return gameRepository.getUserByEmail(context,email);
     }
 
-    public LiveData<UserResponse> getUserByPasswordAndEmail(Context context, String email, String password){
-        return gameRepository.getUserByPasswordAndEmail(context,email,password);
+    public LiveData<UserResponse> getUserByPasswordAndEmail(String email, String password){
+        return gameRepository.getUserByPasswordAndEmail(email,password);
     }
 
     public void saveSession(User user){

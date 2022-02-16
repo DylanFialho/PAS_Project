@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.LoginFragmentViewModel;
-import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
 
 
@@ -58,11 +57,11 @@ public class LoginFragment extends Fragment {
         this.editTextEmailAdress = view.findViewById(R.id.editTextEmailAddrees);
         this.editTextTextPassword = view.findViewById(R.id.editTextTextPasswordRegisterConfirm);
 
-        fun_animataion(imageView);
-        fun_animataion(linearLayout_EditText);
-        fun_animataion(button_login);
-        fun_animataion(textView_login);
-        fun_animataion(textView_go_to_register);
+        funAnimation(imageView);
+        funAnimation(linearLayout_EditText);
+        funAnimation(button_login);
+        funAnimation(textView_login);
+        funAnimation(textView_go_to_register);
 
         //loginFragmentModelViewModel.getActiveSession();
 
@@ -84,12 +83,12 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    void fun_animataion(View view) {
-        view.animate().alpha(1).setDuration(1500).translationY(0);
+    void funAnimation(View view) {
+        view.animate().alpha(1).setDuration(1000).translationY(0);
     }
 
     public void login() {
-        loginFragmentModelViewModel.getUserByPasswordAndEmail(getContext(), editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString()).
+        loginFragmentModelViewModel.getUserByPasswordAndEmail(editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString()).
                 observe(getViewLifecycleOwner(), new Observer<UserResponse>() {
                     @Override
                     public void onChanged(UserResponse user) {

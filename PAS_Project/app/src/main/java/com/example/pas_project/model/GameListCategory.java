@@ -4,12 +4,12 @@ import java.util.List;
 
 public class GameListCategory {
 
-    private List<Game> gameList;
     private String category;
+    private List<Game> gameList;
 
-    public GameListCategory(List<Game> gameList, String category) {
-        this.gameList = gameList;
+    public GameListCategory( String category, List<Game> gameList) {
         this.category = category;
+        this.gameList = gameList;
     }
 
     public List<Game> getGameList() {
