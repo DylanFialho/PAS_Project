@@ -8,6 +8,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.GameWithReview;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.GameCart;
@@ -29,11 +30,12 @@ public interface GameDao {
     @Query("SELECT * FROM GameCart")
     LiveData<List<GameCart>> getAllInCart();
 
+    @Query("SELECT * FROM Game WHERE category IN (:categoryList)")
+    LiveData<List<GameListCategory>> getAllinCategory(List<String> categoryList);
+
     @Insert(onConflict = REPLACE)
     void addGames(List<Game> gameList);
 
     @Insert(onConflict = REPLACE)
     void addGameToCart(List<GameCart> GameCart);
-
-
 }

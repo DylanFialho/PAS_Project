@@ -27,7 +27,7 @@ public class ChoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_choice, container, false);
+        View root = inflater.inflate(R.layout.fragment_login, container, false);
 
 
 

@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.LoginFragmentViewModel;
-import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
 
 
@@ -58,27 +57,21 @@ public class LoginFragment extends Fragment {
         this.editTextEmailAdress = view.findViewById(R.id.editTextEmailAddrees);
         this.editTextTextPassword = view.findViewById(R.id.editTextTextPasswordRegisterConfirm);
 
-        fun_animataion(imageView);
-        fun_animataion(linearLayout_EditText);
-        fun_animataion(button_login);
-        fun_animataion(textView_login);
-        fun_animataion(textView_go_to_register);
+        funAnimation(imageView);
+        funAnimation(linearLayout_EditText);
+        funAnimation(button_login);
+        funAnimation(textView_login);
+        funAnimation(textView_go_to_register);
 
-        //loginFragmentModelViewModel.getActiveSession();
+        /*if(loginFragmentModelViewModel.getActiveSession() != null){
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
+        }*/
 
         this.button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< Updated upstream
-
                 login();
-=======
-Updated upstream
-                login();
-
-                loginFragmentModelViewModel.login(view.getContext(),view,editTextEmailAddrees.getText().toString(),editTextEmailAddrees.getText().toString());
-Stashed changes
->>>>>>> Stashed changes
                 NavController navController = Navigation.findNavController(view);
                 navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
             }
@@ -93,12 +86,12 @@ Stashed changes
         });
     }
 
-    void fun_animataion(View view) {
-        view.animate().alpha(1).setDuration(1500).translationY(0);
+    void funAnimation(View view) {
+        view.animate().alpha(1).setDuration(1000).translationY(0);
     }
 
     public void login() {
-        loginFragmentModelViewModel.getUserByPasswordAndEmail(getContext(), editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString()).
+        loginFragmentModelViewModel.getUserByPasswordAndEmail(editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString()).
                 observe(getViewLifecycleOwner(), new Observer<UserResponse>() {
                     @Override
                     public void onChanged(UserResponse user) {
