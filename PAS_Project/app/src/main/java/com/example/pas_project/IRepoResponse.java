@@ -24,9 +24,7 @@ public class IRepoResponse {
         if (data == null) {
             return Collections.emptyList();
         }
-
         Type listType = new TypeToken<List<Game>>() {}.getType();
-
         return gson.fromJson(data, listType);
     }
 
@@ -34,5 +32,4 @@ public class IRepoResponse {
     public String gameListToString(List<Game> game) {
         return gson.toJson(game);
     }
-
 }

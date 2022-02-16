@@ -33,9 +33,8 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     @Override
     public void onBindViewHolder(@NonNull GameCategoryAdapter.ViewHolder holder, int position) {
 
-        GameListCategory gameListCategory = this.gameList.get(position);
+        GameListCategory gameListCategory = gameList.get(position);
         holder.getCategoryTextView().setText(gameListCategory.getCategory());
-
         GameItemAdapter gameItemAdapter = new GameItemAdapter(context, gameListCategory.getGameList());
         holder.recyclerView.setAdapter(gameItemAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
@@ -46,13 +45,6 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     @Override
     public int getItemCount() {
         return this.gameList.size();
-    }
-
-    public void update(List<GameListCategory> gameListCategory){
-        if (gameListCategory != null) {
-            this.gameList = gameListCategory;
-            notifyDataSetChanged();
-        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

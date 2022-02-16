@@ -23,7 +23,9 @@
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/layout/home_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/layout/news_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dylan/Documents/GitRepos/PAS_Project/PAS_Project/app/src/main/res/menu/main_bottom_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/background_game_recycler_view.xml" value="0.3828125" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/button_main_page.xml" value="0.3828125" />
+        <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/cart_fragment_design.xml" value="0.3828125" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/constraint_background.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/price_background.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/drawable/search_background.xml" value="0.2526041666666667" />
@@ -34,11 +36,14 @@
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/cart_item.xml" value="0.5" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/category_store_item.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/custom_view.xml" value="0.5" />
+        <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_choice.xml" value="0.31431159420289856" />
+        <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_description.xml" value="0.31431159420289856" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_pub1.xml" value="0.25" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_pub2.xml" value="0.3183876811594203" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_pub3.xml" value="0.3183876811594203" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/fragment_register.xml" value="0.3029891304347826" />
+        <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/game_details_fragment.xml" value="0.33" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/home_fragment.xml" value="0.5" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/news_item.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/dylbl/Desktop/Repos/PAS_Project/PAS_Project/app/src/main/res/layout/store_item.xml" value="0.33" />
