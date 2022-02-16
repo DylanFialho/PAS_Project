@@ -220,7 +220,7 @@ class ApiController extends Controller
           }
     }
 
-    public function getGamesByCategory($game){
+    public function getGamesByCategory(Game $game){
       if (Game::where('category',$game->category)->exists()) {
           $gameCategory = Game::where('category',$game->category)->get()->toJson(JSON_PRETTY_PRINT);
           return response(array_values($gameCategory),200);

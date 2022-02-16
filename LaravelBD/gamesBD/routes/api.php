@@ -27,7 +27,7 @@ Route::get('games/{id}', [ApiController::class, 'showApi']);
 Route::post('games', [ApiController::class, 'createApi']);
 Route::put('games/{id}', [ApiController::class, 'updateApi']);
 Route::delete('games/{id}', [ApiController::class, 'destroyApi']);
-Route::get('game/categories', [ApiController::class, 'getGamesByCategory']);
+Route::post('game/categories', [ApiController::class, 'getGamesByCategory']);
 
 Route::get('user', [UserApiController::class, 'indexApi']);
 Route::get('user/{id}', [UserApiController::class, 'showApi']);
