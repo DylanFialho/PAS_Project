@@ -19,8 +19,9 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     private final Context context;
     private List<GameListCategory> gameList;
 
-    public GameCategoryAdapter(Context context) {
+    public GameCategoryAdapter(Context context, List<GameListCategory> gameList) {
         this.context = context;
+        this.gameList = gameList;
     }
 
     @NonNull
@@ -45,6 +46,11 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
     @Override
     public int getItemCount() {
         return this.gameList.size();
+    }
+
+    public void update(List<GameListCategory> gameListCategories) {
+        this.gameList = gameListCategories;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
