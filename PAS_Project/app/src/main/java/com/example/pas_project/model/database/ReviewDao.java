@@ -13,8 +13,8 @@ import java.util.List;
 @Dao
 public interface ReviewDao {
 
-    @Query("SELECT * FROM Review WHERE id = :idReview")
-    LiveData<Review> getReview(long idReview);
+    @Query("SELECT * FROM Review WHERE gameId = :gameId")
+    LiveData<Review> getReview(long gameId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addReview(List<Review> commentList);

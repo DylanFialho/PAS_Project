@@ -33,24 +33,21 @@
         android:id="@+id/newsFragment"
         android:name="com.example.pas_project.Fragment.NewsFragment"
         android:label="news_fragment"
-        tools:layout="@layout/news_fragment" >
-        <action
-            android:id="@+id/action_newsFragment_to_gameDetailsFragment"
-            app:destination="@id/gameDetailsFragment" />
-    </fragment>
+        tools:layout="@layout/news_fragment" />
     <fragment
         android:id="@+id/gameDetailsFragment"
-        android:name="com.example.pas_project.GameDetailsFragment"
+        android:name="com.example.pas_project.Fragment.GameDetailsFragment"
         android:label="game_details_fragment"
         tools:layout="@layout/game_details_fragment" >
-        <action
-            android:id="@+id/action_gameDetailsFragment_to_newsFragment"
-            app:destination="@id/newsFragment" />
         <action
             android:id="@+id/action_gameDetailsFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
         <action
             android:id="@+id/action_gameDetailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="gameId"
+            app:argType="long"
+            android:defaultValue="-1L" />
     </fragment>
 </navigation>

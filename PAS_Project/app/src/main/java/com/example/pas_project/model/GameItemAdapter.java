@@ -40,7 +40,7 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHo
         holder.getTextViewPrice().setText(String.valueOf(game.getPrice()));
 
         holder.getRoot().setOnClickListener(view -> {
-
+            GameDetailsActivity.startActivity(GameItemAdapter.this.context, (long) game.getId());
         });
     }
 

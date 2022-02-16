@@ -38,11 +38,11 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         List<String> categoryList = Constants.categoryList;
+
         RecyclerView recyclerView = view.findViewById(R.id.recyclerHome);
         GameCategoryAdapter categoryAdapter = new GameCategoryAdapter(getContext());
-
-        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         viewModel.getAllCategorys(categoryList);
         recyclerView.setAdapter(categoryAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));

@@ -27,13 +27,13 @@ import com.example.pas_project.model.UserResponse;
 
 public class LoginFragment extends Fragment {
 
-   private ImageView imageView;
-   private LinearLayout linearLayout_EditText;
-   private Button button_login;
-   private TextView textView_login , textView_go_to_register;
+    private ImageView imageView;
+    private LinearLayout linearLayout_EditText;
+    private Button button_login;
+    private TextView textView_login , textView_go_to_register;
 
-   private EditText editTextEmailAdress;
-   private EditText editTextTextPassword;
+    private EditText editTextEmailAdress;
+    private EditText editTextTextPassword;
 
     private LoginFragmentViewModel loginFragmentModelViewModel;
 

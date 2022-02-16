@@ -1,22 +1,33 @@
 package com.example.pas_project.model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import java.util.List;
+
+@Entity(foreignKeys = {@ForeignKey(entity = Game.class,
+        parentColumns = "id",
+        childColumns = "gameId",
+        onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = User.class,
+                parentColumns = "id",
+                childColumns = "userId",
+                onDelete = ForeignKey.CASCADE)
+})
 public class Review {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
-    private String userName;
+    private long gameId;
+    private User user;
     private String content;
-    private int rating;
 
-    public Review(long id, String userName, String content, int rating) {
+    public Review(long id, long gameId, User user, String content) {
         this.id = id;
-        this.userName = userName;
+        this.gameId = gameId;
+        this.user = user;
         this.content = content;
-        this.rating = rating;
     }
 
     public long getId() {
@@ -27,12 +38,20 @@ public class Review {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public long getGameId() {
+        return gameId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setGameId(long gameId) {
+        this.gameId = gameId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getContent() {
@@ -41,13 +60,5 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 }
