@@ -6,6 +6,6 @@ import java.util.List;
 
 public class Constants {
     public static final List<String> categoryList = new ArrayList<>(
-            Arrays.asList("RPG", "Ação", "Aventura", "Simulação", "Desporto")
+            Arrays.asList("FPS", "Fighting", "Racing", "MMO", "Simulation", "Sports")
     );
 }
