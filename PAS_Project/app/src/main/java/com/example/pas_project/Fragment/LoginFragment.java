@@ -63,10 +63,10 @@ public class LoginFragment extends Fragment {
         funAnimation(textView_login);
         funAnimation(textView_go_to_register);
 
-        if(loginFragmentModelViewModel.getActiveSession() != null){
+        /*if(loginFragmentModelViewModel.getActiveSession() != null){
             NavController navController = Navigation.findNavController(view);
             navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
-        }
+        }*/
 
         this.button_login.setOnClickListener(new View.OnClickListener() {
             @Override
