@@ -1,7 +1,5 @@
 package com.example.pas_project.model;
 
-import androidx.room.Ignore;
-
 import java.util.List;
 
 public class GameListCategory {

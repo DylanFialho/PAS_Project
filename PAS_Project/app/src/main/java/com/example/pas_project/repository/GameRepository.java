@@ -1,7 +1,6 @@
 package com.example.pas_project.repository;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
@@ -42,19 +41,19 @@ public class GameRepository {
         return this.gameDao.getAllGames();
     }
 
-    public LiveData<List<Game>> getGameId(long id) {
-        MutableLiveData<List<Game>> mutableLiveData = new MutableLiveData<>();
+    public LiveData<Game> getGameId(long id) {
+        MutableLiveData<Game> mutableLiveData = new MutableLiveData<>();
         GameService service = DataSource.getGameService();
-        Call<List<Game>> call = service.getGameId(id);
+        Call<Game> call = service.getGameId(id);
 
-        call.enqueue(new Callback<List<Game>>() {
+        call.enqueue(new Callback<Game>() {
             @Override
-            public void onResponse(Call<List<Game>> call, Response<List<Game>> response) {
+            public void onResponse(Call<Game> call, Response<Game> response) {
                 mutableLiveData.postValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<Game>> call, Throwable t) {
+            public void onFailure(Call<Game> call, Throwable t) {
                 mutableLiveData.postValue(null);
             }
         });

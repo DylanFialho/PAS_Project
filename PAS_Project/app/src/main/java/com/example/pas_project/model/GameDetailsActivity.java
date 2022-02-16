@@ -1,17 +1,17 @@
 package com.example.pas_project.model;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.pas_project.R;
@@ -61,18 +61,20 @@ public class GameDetailsActivity extends AppCompatActivity {
             }
         }
 
-        gameDetailsViewModel.getGamesById(id).observe(this, new Observer<List<Game>>() {
+        gameDetailsViewModel.getGamesById(id).observe(this, new Observer<Game>() {
             @Override
-            public void onChanged(List<Game> gameList) {
-                Glide.with(GameDetailsActivity.this).load(gameList.get(0).getImgURL()).into(GameDetailsActivity.this.gameImage);
-                GameDetailsActivity.this.gameTitle.setText(gameList.get(0).getTitle());
-                GameDetailsActivity.this.gamePrice.setText(gameList.get(0).getPrice() + "€");
-                GameDetailsActivity.this.gameDescription.setText(gameList.get(0).getDescription());
+            public void onChanged(Game game) {
+                Glide.with(GameDetailsActivity.this).load(game.getImgURL()).into(GameDetailsActivity.this.gameImage);
+                GameDetailsActivity.this.gameTitle.setText(game.getTitle());
+                GameDetailsActivity.this.gamePrice.setText(game.getPrice() + "€");
+                GameDetailsActivity.this.gameDescription.setText(game.getDescription());
 
                 GameDetailsAdapter adapter = new GameDetailsAdapter(GameDetailsActivity.this);
                 recyclerReview.setLayoutManager(new LinearLayoutManager(GameDetailsActivity.this.getApplicationContext()));
                 recyclerReview.setAdapter(adapter);
             }
         });
+
+
     }
 }

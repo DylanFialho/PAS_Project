@@ -3,6 +3,7 @@ package com.example.pas_project;
 import androidx.room.TypeConverter;
 
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -15,7 +16,7 @@ import java.util.List;
 Passar uma lista de objeto Game para String e vice versa
 https://medium.com/@toddcookevt/android-room-storing-lists-of-objects-766cca57e3f9
 */
-public class IRepoResponse {
+public class CustomTypeConverters {
 
     Gson gson = new Gson();
 
@@ -31,5 +32,19 @@ public class IRepoResponse {
     @TypeConverter
     public String gameListToString(List<Game> game) {
         return gson.toJson(game);
+    }
+
+    @TypeConverter
+    public User stringToUser(String data) {
+        if (data == null) {
+            return null;
+        }
+        Type listType = new TypeToken<User>() {}.getType();
+        return gson.fromJson(data, listType);
+    }
+
+    @TypeConverter
+    public String userToString(User user) {
+        return gson.toJson(user);
     }
 }

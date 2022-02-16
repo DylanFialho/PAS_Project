@@ -1,7 +1,7 @@
 package com.example.pas_project.model.remote;
 
-import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
@@ -13,7 +13,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface GameService {
     ///////////////////////////////////////////////////////////////////USER API
@@ -36,7 +35,7 @@ public interface GameService {
     Call<List<Game>> getGames();
 
     @GET("game/{id}")
-    Call<List<Game>> getGameId(@Path("id") long id);
+    Call<Game> getGameId(@Path("id") long id);
 
     @GET("game/categories")
     Call<GameListCategory> getGameCategorys(@Body List<String> category);

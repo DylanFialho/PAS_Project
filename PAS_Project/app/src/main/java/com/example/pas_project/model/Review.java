@@ -4,17 +4,10 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import java.util.List;
-
 @Entity(foreignKeys = {@ForeignKey(entity = Game.class,
         parentColumns = "id",
         childColumns = "gameId",
-        onDelete = ForeignKey.CASCADE),
-        @ForeignKey(entity = User.class,
-                parentColumns = "id",
-                childColumns = "userId",
-                onDelete = ForeignKey.CASCADE)
-})
+        onDelete = ForeignKey.CASCADE)})
 public class Review {
 
     @PrimaryKey(autoGenerate = true)

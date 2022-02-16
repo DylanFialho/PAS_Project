@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.pas_project.model.Game;
-import com.example.pas_project.repository.GameRepository;
 import com.example.pas_project.model.GameCart;
+import com.example.pas_project.repository.GameRepository;
 
 import java.util.List;
 

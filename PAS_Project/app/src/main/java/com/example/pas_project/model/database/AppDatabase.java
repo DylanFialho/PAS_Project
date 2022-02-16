@@ -7,14 +7,14 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.example.pas_project.IRepoResponse;
+import com.example.pas_project.CustomTypeConverters;
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.Review;
 import com.example.pas_project.model.User;
-import com.example.pas_project.model.GameCart;
 
 @Database(entities = {Game.class, User.class, Review.class, GameCart.class}, version = 3)
-@TypeConverters(IRepoResponse.class)
+@TypeConverters({CustomTypeConverters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract GameDao getGameDao();

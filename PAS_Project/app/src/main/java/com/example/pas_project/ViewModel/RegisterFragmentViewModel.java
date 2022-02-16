@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.pas_project.model.User;
 import com.example.pas_project.repository.GameRepository;
 import com.example.pas_project.repository.SessionRepository;
-import com.example.pas_project.model.User;
 
 public class RegisterFragmentViewModel extends AndroidViewModel {
 
