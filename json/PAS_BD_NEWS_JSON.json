@@ -1,0 +1,29 @@
+{
+    "games": [  
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/qx8Tbt_P4s0CUWhUi0zXERfNW1s7_qGS5WbBO_uVudI_350x200_2x-0.jpeg",
+            "name": "Elden Ring",
+            "description": "Elden Ring é um futuro jogo eletrônico de RPG de ação desenvolvido pela FromSoftware e publicado pela Bandai Namco Entertainment. ",
+            "category": "FPS",
+            "console": "PC",
+            "price":  59.99
+        },
+        {
+            "url": "https://www.global-esports.news/wp-content/uploads/2021/10/Starfield-game.png",
+            "name": "Starfield",
+            "description": "Starfield é um futuro jogo eletrônico de RPG de ação e ficção em desenvolvimento pela Bethesda Game Studios, publicado pela Bethesda Softworks e distribuído pela Microsoft.",
+            "category": "FPS",
+            "console": "PC",
+            "price":  60.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/0bcARKukf3aeQzgttQ5EX4hHeS-e1HE92ASlz94USlM_350x200_2x-0.jpeg",
+            "name": "Horizon Forbidden West",
+            "description": "Horizon Forbidden West é um futuro jogo eletrônico de RPG de ação desenvolvido pela Guerrilla Games e publicado pela Sony Interactive Entertainment",
+            "category": "FPS",
+            "console": "PS4",
+            "price": 59.99
+        }
+        
+    ] 
+}   

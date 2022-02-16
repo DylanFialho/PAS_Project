@@ -1,0 +1,340 @@
+{
+    "games": [  
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/vjTU_Oa9q0awrM_i5rLmsoTRKnmQ8skpcznCpMuxzrI_350x200_2x-0.png",
+            "name": "House Flipper",
+            "description": "House Flipper é um jogo eletrônico de simulação desenvolvido pela Empyrean e publicado pela PlayWay SA, lançado em 17 de maio de 2018.",
+            "category": "Simulation",
+            "console": "PC",
+            "price":  16.49
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/lFZ_o6Ns3bTO3PIn3cQYDzbbpwFskBtTBQ_8JEURYus_350x200_2x-0.jpeg",
+            "name": "Euro Truck Simulator 2",
+            "description": "Euro Truck Simulator 2 é um jogo de simulação de caminhões desenvolvido, e publicado pela SCS Software para Microsoft Windows, Linux e recentemente para OSX. Foi inicialmente lançado como um jogo de desenvolvimento aberto em 19 de outubro de 2012",
+            "category": "Simulation",
+            "console": "PC",
+            "price":  8.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/2b766fef7a55454205f9f2745abc9814_350x200_2x-0.jpg",
+            "name": "Cities: Skylines",
+            "description": "Cities: Skylines é um jogo de construção de cidade singleplayer produzido pela Colossal Order e publicado pela Paradox Interactive.",
+            "category": "Simulation",
+            "console": "PC",
+            "price": 10.50
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/lkqISlY_350x200_2x-0.jpg",
+            "name": "The Sims 4: Seasons",
+            "description": "The Sims 4: Seasons. Experimente o clima impactante, divirta-se com atividades sazonais, celebre os feriados e desenvolva sua carreira de jardinagem. Desenvolvimento. Desenvolvedor(es) Maxis, The Sims Studio.",
+            "category": "Simulation",
+            "console": "PC",
+            "price":  19.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/OSWcJ-qJhD8Rts4-_qlL0anIKB9oroa9qbEklyCGDdg_350x200_2x-0.jpeg",
+            "name": "Project CARS 3",
+            "description": "Project CARS 3 é um videogame de corrida desenvolvido pela Slightly Mad Studios e publicado pela Bandai Namco Entertainment.",
+            "category": "Simulation",
+            "console": "PS4",
+            "price":  35.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/0Qlnyqw_350x200_2x-0.jpg",
+            "name": "Car Mechanic Simulator",
+            "description": "Car Mechanic Simulator 2018 é um videogame de simulação desenvolvido pelo estúdio polonês Red Dot Games que descreve o trabalho de um mecânico automotivo. Foi lançado em 28 de julho de 2017.",
+            "category": "Simulation",
+            "console": "PC",
+            "price":  16.49
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/dt2YLgy_350x200_2x-0.jpg",
+            "name": "Staxel ",
+            "description": "Staxel é um jogo criativo de agricultura e vida na aldeia com um elenco de personagens peculiares. Construa sua casa de fazenda, ajude os aldeões, vá para a natureza pescar ou caçar insetos e cultive uma variedade de plantações em seu quintal. Se você estiver se sentindo social, você pode até convidar seus amigos para compartilhar a diversão!",
+            "category": "Simulation",
+            "console": "SWITCH",
+            "price":  20.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/u0pi1ltyz2mtmesnxwzq_350x200_2x-0.jpg",
+            "name": "Tennis World Tour",
+            "description": "ennis World Tour é um videogame de tênis desenvolvido pela Breakpoint Studio e publicado pela Bigben.",
+            "category": "Sports",
+            "console": "PC",
+            "price":  3.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/edkpgyqgfsxyiby9pyj5_350x200_2x-0.jpg",
+            "name": "Rocket League ",
+            "description": "Rocket League é um jogo eletrônico de futebol em veículos desenvolvido e publicado pela Psyonix. Foi lançado pela primeira vez para Microsoft Windows.",
+            "category": "Sports",
+            "console": "PC",
+            "price":  10.49
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/R3PnNvwkit0iwXF6PkrsRuhdlcaLic4_4yhkxI2vcJ0_350x200_2x-0.jpeg",
+            "name": "Fifa22",
+            "description": "FIFA 22 é um jogo eletrônico de simulação de futebol desenvolvido e publicado pela Electronic Arts. O jogo foi anunciado no dia 11 de julho de 2021.",
+            "category": "Sports",
+            "console": "PS4",
+            "price":  59.49
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/e_UafALgkGFTY0PaM6OqYBX9JRwak6BiH7GEVUsx9LE_350x200_2x-0.jpeg",
+            "name": "EA SPORTS UFC 3 Deluxe Edition",
+            "description": "EA Sports UFC 3 é um videogame de luta de artes marciais mistas desenvolvido pela EA Canada e Nick Gomez, publicado pela EA Sports.",
+            "category": "Sports",
+            "console": "XBOX",
+            "price":  38.19
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/d2F5wH6_350x200_2x-0.jpg",
+            "name": "Motorsport Manager",
+            "description": "O Motorsport Manager é um videogame de estratégia de simulação de gerenciamento de corrida desenvolvido pelo desenvolvedor britânico de jogos de vídeo Playsport Games.",
+            "category": "Sports",
+            "console": "PC",
+            "price":  4.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/hwan8wag6ype4xpiu1gv_350x200_2x-0.jpg",
+            "name": "Steep Uplay",
+            "description": "Steep é um game de desportos radicais no mundo aberto produzido pela Ubisoft Annecy e publicado pela Ubisoft para Microsoft Windows.",
+            "category": "Sports",
+            "console": "PC",
+            "price":  26.60
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/POFKZis_350x200_2x-0.jpg",
+            "name": "Eastside Hockey Manage",
+            "description": "Eastside Hockey Manager é um jogo de simulação de gerenciamento de hóquei no gelo e é a edição mais recente da série Eastside Hockey Manager. É desenvolvido pela SI Games e publicado pela Sega.",
+            "category": "Sports",
+            "console": "PC",
+            "price":  12.49
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/mqsz6rddiq92zp3mqrnb_350x200_2x-0.jpg",
+            "name": "The Crew 2 ",
+            "description": "The Crew 2 é um jogo eletrônico de corrida, desenvolvido pela Ivory Tower e publicado pela Ubisoft.",
+            "category": "MMO",
+            "console": "PC",
+            "price":  12.19
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/iKUcPavooAICaIgoFultQQmz9SbO_fT694UQ9IYGyBI_350x200_2x-0.jpeg",
+            "name": "Dragon Ball: Xenoverse 2 ",
+            "description": "ragon Ball Xenoverse 2 é um jogo de videogame do gênero de luta e de RPG; desenvolvido pela Dimps e publicado pela Bandai Namco Entertainment. Baseado na franquia Dragon Ball, é uma sequência de Dragon Ball Xenoverse.",
+            "category": "MMO",
+            "console": "SWITCH",
+            "price":  14.39
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/Miscreated_350x200_2x-0.jpg",
+            "name": "Miscreated",
+            "description": "Miscreated é um jogo multiplayer online de sobrevivência hardcore ambientado em um futuro pós-apocalíptico. Você precisará sobreviver contra mutantes, jogadores e até mesmo a própria mãe natureza.",
+            "category": "MMO",
+            "console": "PC",
+            "price":  18.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/JdxDJf0yE2cGokqWYSTvoelg1qa4-8eGh65KbvDFucU_350x200_2x-0.jpeg",
+            "name": "Final Fantasy XIV: Starter Edition",
+            "description": "Final Fantasy XIV, também chamado de Final Fantasy XIV Online, é um jogo eletrônico MMORPG desenvolvido pela Square Enix exclusivamente para Microsoft Windows. É o décimo quarto jogo principal da série Final Fantasy e o segundo MMORPG da franquia após Final Fantasy XI.",
+            "category": "MMO",
+            "console": "PS4",
+            "price":  12.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/aetyaf9kvxjjadrcahqc_350x200_2x-0.jpg",
+            "name": "Tom Clancy's The Division",
+            "description": "Tom Clancy's The Division é um jogo eletrônico de tiro táctico com elementos de RPG, jogado em mundo aberto. Foi produzido pela Massive Entertainment e publicado pela Ubisoft .",
+            "category": "MMO",
+            "console": "PC",
+            "price":  5.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/YUGfSmP_350x200_2x-0.jpg",
+            "name": "Guild Wars 2: Heart of Thorns Official",
+            "description": "Guild Wars 2: Heart of Thorns é o primeiro pacote de expansão para Guild Wars 2, um jogo de RPG online multiplayer desenvolvido pela ArenaNet e publicado pela NCSOFT. Foi lançado para o Microsoft Windows em 23 de outubro de 2015.",
+            "category": "MMO",
+            "console": "PC",
+            "price":  27.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/yAOZ3rcR-f38y1ulbFBuXsGCbBRzkjHxxdlsvoSdkIQ_350x200_2x-0.jpeg",
+            "name": "World of Warcraft",
+            "description": "World of Warcraft é um jogo on-line do gênero MMORPG, desenvolvido e distribuído pela produtora Blizzard Entertainment e lançado em 2004.",
+            "category": "MMO",
+            "console": "PC",
+            "price":  37.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/Vva9_SDV7eRg1UROgTQS4nWPURE6xGcomeU1rdzNbIU_350x200_2x-0.jpeg",
+            "name": "Assetto corsa ",
+            "description": "O Assetto Corsa possui um avançado mecanismo gráfico DirectX 11 que recria um ambiente imersivo, iluminação dinâmica e materiais e superfícies realistas.",
+            "category": "Racing",
+            "console": "PC",
+            "price":  40.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/b1wUatD_350x200_2x-0.jpg",
+            "name": "MXGP: The Official Motocross",
+            "description": "MXGP O Official Motocross Videogame foi o primeiro de uma série de videogames de corrida desenvolvidos e publicados pela Milestone.",
+            "category": "Racing",
+            "console": "PC",
+            "price":  17.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/OSWcJ-qJhD8Rts4-_qlL0anIKB9oroa9qbEklyCGDdg_350x200_2x-0.jpeg",
+            "name": "Project CARS 3",
+            "description": "Project CARS 3 é um videogame de corrida desenvolvido pela Slightly Mad Studios e publicado pela Bandai Namco Entertainment.",
+            "category": "Racing",
+            "console": "PS4",
+            "price":  37.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/XoimkrBnGsJ8jqT2EYDsY0SkMiXqx1Jra1Hg9ZmgOKQ_350x200_2x-0.jpeg",
+            "name": "Forza Horizon 4",
+            "description": "Forza Horizon 4 é um jogo de corrida em mundo aberto desenvolvido pela Playground Games em colaboração com a Turn 10 e publicado pela Xbox Game Studios, que na época do lançamento ainda era conhecida como Microsoft Studios.",
+            "category": "Racing",
+            "console": "XBOX",
+            "price":  59.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/ufu85bhpdouoamausfld_350x200_2x-0.jpg",
+            "name": "Need for Speed: Payback",
+            "description": "Need For Speed: Payback é um jogo de mundo aberto de corrida desenvolvido pela Ghost Games e publicado pela Electronic Arts.",
+            "category": "Racing",
+            "console": "PC",
+            "price":  15.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/rmbtikwjjndtsjtfb0fv_350x200_2x-0.jpg",
+            "name": "DiRT Rally",
+            "description": "Colin McRae Rally é a saga de jogos de corrida de rali da Codemasters. É a série de jogos de rali comercialmente mais popular.",
+            "category": "Racing",
+            "console": "SWITCH",
+            "price":  37.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/QTT1zljenS1DgnmBBWNuGviebtgfoga0Xn8jsZ-pHbI_350x200_2x-0.jpeg",
+            "name": "Forza Motorsport 7",
+            "description": "Forza Motorsport 7 é um jogo de corrida desenvolvido pela Turn 10 Studios e publicado pela Xbox Game Studios Exclusivamente para o Xbox One e Windows 10.",
+            "category": "Racing",
+            "console": "XBOX",
+            "price":  40.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/wjtfjrmcqmhxuc8n9jxl_350x200_2x-0.jpg",
+            "name": "Tekken 7",
+            "description": "Tekken 7 é um jogo eletrônico de luta desenvolvido e publicado pela Bandai Namco Entertainment. É o nono jogo da série de luta Tekken, sendo o primeiro a utilizar o motor de jogo Unreal Engine 4.",
+            "category": "Fighting",
+            "console": "PC",
+            "price":  10.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/d3u9twanoznp5fspuzpe_350x200_2x-0.jpg",
+            "name": "Dragon Ball FighterZ",
+            "description": "Dragon Ball FighterZ é um jogo da franquia Dragon Ball, desenvolvido pela Arc System Works é publicado pela Bandai Namco Entertainment .",
+            "category": "Fighting",
+            "console": "PC",
+            "price":  15.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/L8nyvNr_350x200_2x-0.jpg",
+            "name": "Mortal Kombat XL",
+            "description": "World of Warcraft é um jogo on-line do gênero FIGHTIN, desenvolvido e distribuído pela produtora Blizzard Entertainment e lançado em 2019.",
+            "category": "Fighting",
+            "console": "PS4",
+            "price":  39.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/bqb7isackrh224rhkvjm_350x200_2x-0.jpg",
+            "name": "Injustice 2",
+            "description": "Injustice 2 é um jogo de luta produzido pela NetherRealm Studios e publicado pela Warner Bros. Games em 16 de maio de 2017.",
+            "category": "Fighting",
+            "console": "SWITCH",
+            "price":  25.50
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/SEnBohn_350x200_2x-0.jpg",
+            "name": "Street Fighter V",
+            "description": "Street Fighter V é um videojogo de luta publicado pela Capcom, que o produziu em colaboração com o estúdio Dimps. O sexto capítulo da série Street Fighter, foi lançado a 16 de Fevereiro de 2016.",
+            "category": "Fighting",
+            "console": "PC",
+            "price":  9.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/oseqhiikph3dz6d0elvs_350x200_2x-0.jpg",
+            "name": "Soulcalibur VI",
+            "description": "SoulCalibur VI é um jogo de luta 3D desenvolvido pela Projeto Soul e publicado pela Bandai Namco Entertainment. Ele foi lançado na Microsoft Windows, PlayStation 4 e Xbox One em 19 de outubro de 2018.",
+            "category": "Fighting",
+            "console": "PC",
+            "price":  25.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/8zA8xuq_350x200_2x-0.jpg",
+            "name": "Marvel vs. Capcom: Infinite",
+            "description": "Marvel vs. Capcom: Infinite é um jogo eletrônico de luta desenvolvido pela Capcom, lançado para o PlayStation 4, Xbox One e Microsoft Windows.",
+            "category": "Fighting",
+            "console": "PC",
+            "price":  15.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/irPw7tH_350x200_2x-0.jpg",
+            "name": "Dying Light: The Following",
+            "description": "Dying Light: The Following é um pacote de expansão para o jogo de terror de sobrevivência de 2015 Dying Light. O jogo foi desenvolvido pela Techland, publicado pela Warner Bros.",
+            "category": "FPS",
+            "console": "PC",
+            "price":  39.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/t0zqmqhdcxppyol3mtlg_350x200_2x-0.jpg",
+            "name": "Grand Theft Auto V",
+            "description": "Grand Theft Auto V é um jogo eletrônico de ação-aventura desenvolvido pela Rockstar North e publicado pela Rockstar Games. É o sétimo título principal da série Grand Theft Auto e foi lançado originalmente em 17 de setembro de 2013.",
+            "category": "FPS",
+            "console": "PS4",
+            "price":  9.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/mbvjvra2hglq3or2irmc_350x200_2x-0.jpg",
+            "name": "The Evil Within",
+            "description": "The Evil Within, conhecido no Japão como PsychoBreak, é um jogo eletrônico de terror de sobrevivência desenvolvido pela Tango Gameworks e publicado pela Bethesda Softworks.",
+            "category": "FPS",
+            "console": "PC",
+            "price":  20.00
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/6M1qP76B-j6vdX0T4bFCHgJeX99MaKBpXFxbpif1MqY_350x200_2x-0.jpeg",
+            "name": "Red Dead Redemption 2",
+            "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido e publicado pela Rockstar Games.",
+            "category": "FPS",
+            "console": "PS4",
+            "price":  49.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/78f848d8773a629a3123e790884b0ed4_350x200_2x-0.jpg",
+            "name": "Battlefield 5",
+            "description": "Battlefield V é um jogo eletrônico de tiro em primeira pessoa, desenvolvido pela DICE e publicado pela Electronic Arts.",
+            "category": "FPS",
+            "console": "PC",
+            "price":  5.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/pcprtyfthjmzp2abnnhv_350x200_2x-0.jpg",
+            "name": "Mad Max",
+            "description": "Mad Max é uma franquia multi-media australiana do gênero ficção científica, contendo elementos de ação baseada em um futuro pós-apocalíptico, criada por James McCausland e George Miller.",
+            "category": "FPS",
+            "console": "SWITCH",
+            "price":  15.99
+        },
+        {
+            "url": "https://cdn-products.eneba.com/resized-products/pfh6p58zvuchhs6ayuaq_350x200_2x-0.jpg",
+            "name": "Deadpool",
+            "description": "Deadpool é um jogo eletrônico de ação beat 'em up baseado no personagem da Marvel Comics de mesmo nome. O jogo, desenvolvido pela High Moon Studios e publicado pela Activision.",
+            "category": "FPS",
+            "console": "SWITCH",
+            "price":  36.00
+        }
+    ] 
+}   
