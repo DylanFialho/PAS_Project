@@ -38,6 +38,6 @@ public interface GameService {
     @GET("game/{id}")
     Call<Game> getGameId(@Path("id") long id);
 
-    @GET("game/categories/")
+    @GET("game/categories")
     Call<GameListCategory> getGameCategorys(@Body List<String> category);
 }

@@ -192,7 +192,7 @@ class ApiController extends Controller
             ], 200);
           } else {
             return response()->json([
-              "message" => "Student not found"
+              "message" => "Game not found"
             ], 404);
           }
     }
@@ -215,8 +215,18 @@ class ApiController extends Controller
             ], 202);
           } else {
             return response()->json([
-              "message" => "Student not found"
+              "message" => "Game not found"
             ], 404);
           }
+    }
+
+    public function getGamesByCategory($game){
+      if (Game::where('category',$game->category)->exists()) {
+          $gameCategory = Game::where('category',$game->category)->get()->toJson(JSON_PRETTY_PRINT);
+          return response(array_values($gameCategory),200);
+      }else{
+          return response()->json(["message" => "Jogos nao encontrados"]
+          ,404);
+      }
     }
 }
