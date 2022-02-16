@@ -1,10 +1,13 @@
 package com.example.pas_project.model;
 
+import androidx.room.Ignore;
+
 import java.util.List;
 
 public class GameListCategory {
 
     private String category;
+    @Ignore
     private List<Game> gameList;
 
     public GameListCategory( String category, List<Game> gameList) {
