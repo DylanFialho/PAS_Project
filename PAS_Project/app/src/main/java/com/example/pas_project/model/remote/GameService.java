@@ -2,6 +2,7 @@ package com.example.pas_project.model.remote;
 
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameCart;
+import com.example.pas_project.model.GameCategoryBody;
 import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
@@ -38,5 +39,5 @@ public interface GameService {
     Call<Game> getGameId(@Path("id") long id);
 
     @GET("game/categories")
-    Call<GameListCategory> getGameCategorys(@Body List<String> category);
+    Call<GameListCategory> getGameCategorys(@Body GameCategoryBody categoryBody);
 }

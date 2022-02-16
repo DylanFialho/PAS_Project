@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameCart;
+import com.example.pas_project.model.GameCategoryBody;
 import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.GameWithReview;
 import com.example.pas_project.model.User;
@@ -178,7 +179,7 @@ public class GameRepository {
 
     public LiveData<List<GameListCategory>> getGamesInCategory(List<String> category){
         GameService gameService = DataSource.getGameService();
-        Call<GameListCategory> call = gameService.getGameCategorys(category);
+        Call<GameListCategory> call = gameService.getGameCategorys(new GameCategoryBody(category));
 
         call.enqueue(new Callback<GameListCategory>() {
             @Override
