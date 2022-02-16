@@ -162,7 +162,7 @@ public class GameRepository {
         return userMutableLiveData;
     }
 
-    public LiveData<GameListCategory> getGamesInCategory(String category){
+    public LiveData<List<GameListCategory>> getGamesInCategory(List<String> category){
         GameService gameService = DataSource.getGameService();
         Call<GameListCategory> call = gameService.getGameCategorys(category);
 

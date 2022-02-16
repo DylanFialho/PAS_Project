@@ -26,7 +26,7 @@ public class HomeViewModel extends AndroidViewModel {
         return this.gameRepository.getGames();
     }
 
-    public LiveData<GameListCategory> getAllCategorys(String category) {
+    public LiveData<List<GameListCategory>> getAllCategorys(List<String> category) {
         return this.gameRepository.getGamesInCategory(category);
     }
 }

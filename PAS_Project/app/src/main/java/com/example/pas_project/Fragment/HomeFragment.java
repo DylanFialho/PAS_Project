@@ -27,7 +27,6 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel viewModel;
-    private List<GameListCategory> gameListCategory = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -40,16 +39,11 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         List<String> categoryList = Constants.categoryList;
-
         RecyclerView recyclerView = view.findViewById(R.id.recyclerHome);
         GameCategoryAdapter categoryAdapter = new GameCategoryAdapter(getContext());
 
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
-        for (int i = 0; i < categoryList.size(); i++) {
-            viewModel.getAllCategorys(categoryList.get(i));
-        }
-
+        viewModel.getAllCategorys(categoryList);
         recyclerView.setAdapter(categoryAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
     }

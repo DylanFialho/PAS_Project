@@ -30,8 +30,8 @@ public interface GameDao {
     @Query("SELECT * FROM GameCart")
     LiveData<List<GameCart>> getAllInCart();
 
-    @Query("SELECT * FROM Game WHERE category = :category")
-    LiveData<GameListCategory> getAllinCategory(String category);
+    @Query("SELECT * FROM Game WHERE category IN (:categoryList)")
+    LiveData<List<GameListCategory>> getAllinCategory(List<String> categoryList);
 
     @Insert(onConflict = REPLACE)
     void addGames(List<Game> gameList);
