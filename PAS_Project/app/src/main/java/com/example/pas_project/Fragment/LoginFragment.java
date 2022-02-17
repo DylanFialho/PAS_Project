@@ -80,7 +80,7 @@ public class LoginFragment extends Fragment implements IRepoResponse<List<User>>
             @Override
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_loginFragment_to_registerFragment);
+                navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
             }
         });
     }

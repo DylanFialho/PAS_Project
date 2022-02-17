@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_loginFragment_to_pub1Fragment"
             app:destination="@id/pub1Fragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_nav_graph"
-            app:destination="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/pub1Fragment"
