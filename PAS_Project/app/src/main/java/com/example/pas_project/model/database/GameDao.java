@@ -27,9 +27,6 @@ public interface GameDao {
     @Query("SELECT * FROM GameCart")
     LiveData<List<GameCart>> getAllInCart();
 
-    @Query("SELECT * FROM Game WHERE category IN (:categoryList)")
-    LiveData<List<Game>> getAllinCategory(List<String> categoryList);
-
     @Query("SELECT * FROM User WHERE email = :email AND password = :pass")
     LiveData<User> getUserByEmailAndPass(String email, String pass);
 
