@@ -18,6 +18,7 @@ import com.example.pas_project.ViewModel.CartViewModel;
 import com.example.pas_project.model.CartAdapter;
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.database.AppDatabase;
+import com.example.pas_project.repository.IRepoResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +48,17 @@ public class CartFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
 
-        recyclerView = view.findViewById(R.id.recyclerCart);
-        cartAdapter = new CartAdapter(getContext(), mViewModel.getGamesInCart());
-        recyclerView.setAdapter(cartAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        mViewModel.getGamesInCart(new IRepoResponse<List<Game>>() {
+            @Override
+            public void onSuccess(List<Game> obj) {
+                recyclerView = view.findViewById(R.id.recyclerCart);
+                cartAdapter = new CartAdapter(getContext(), obj);
+                recyclerView.setAdapter(cartAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+            }
+        });
+
+
+
     }
 }

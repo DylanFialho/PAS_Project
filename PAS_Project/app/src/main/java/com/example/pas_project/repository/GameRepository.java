@@ -103,27 +103,20 @@ public class GameRepository {
         });
     }
 
-    public List<Game> getGamesInCart() {
-        List<Game> gameList = new ArrayList<>();
-
+    public void getGamesInCart(IRepoResponse<List<Game>> callBack) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < gameDao.getAllInCart().size(); i++) {
-                    Game game = gameDao.getAllInCart().get(i);
-                    gameList.add(game);
-                }
+                callBack.onSuccess(gameDao.getAllInCart());
             }
         }).start();
-
-        return gameList;
     }
 
     public void updateGameToCart(Game game) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                gameDao.updateGame(game);
+                gameDao.updateGame(game.getId());
             }
         }).start();
     }

@@ -1,5 +1,6 @@
 package com.example.pas_project.model.database;
 
+import static androidx.room.OnConflictStrategy.IGNORE;
 import static androidx.room.OnConflictStrategy.REPLACE;
 
 import androidx.lifecycle.LiveData;
@@ -34,11 +35,11 @@ public interface GameDao {
     @Query("SELECT * FROM Game ORDER BY RANDOM() LIMIT 3")
     List<Game> getNews();
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = IGNORE)
     void addGames(List<Game> gameList);
 
-    @Update
-    public void updateGame(Game game);
+    @Query("UPDATE Game SET isInCart = 1 WHERE id = :id")
+    public void updateGame(long id);
 
     @Insert(onConflict = REPLACE)
     void addUser(User user);

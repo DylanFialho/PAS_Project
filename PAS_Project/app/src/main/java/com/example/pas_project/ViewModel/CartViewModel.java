@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 
 import com.example.pas_project.model.Game;
 import com.example.pas_project.repository.GameRepository;
+import com.example.pas_project.repository.IRepoResponse;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class CartViewModel extends AndroidViewModel {
         this.gameRepository = new GameRepository(application.getApplicationContext());
     }
 
-    public List<Game> getGamesInCart() {
-        return gameRepository.getGamesInCart();
+    public void getGamesInCart(IRepoResponse<List<Game>> callBack) {
+        gameRepository.getGamesInCart(callBack);
     }
 }
