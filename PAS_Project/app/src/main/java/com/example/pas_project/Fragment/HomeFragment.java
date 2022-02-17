@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.HomeViewModel;
 import com.example.pas_project.model.Constants;
+import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameCategoryAdapter;
 import com.example.pas_project.model.GameListCategory;
 
@@ -40,20 +41,36 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        List<String> categoryList = Constants.categoryList;
-
-        viewModel.getAllCategorys(categoryList).observe(getViewLifecycleOwner(), new Observer<List<GameListCategory>>() {
-            @Override
-            public void onChanged(List<GameListCategory> gameListCategories) {
-                HomeFragment.this.categoryAdapter.update(gameListCategories);
-                HomeFragment.this.gameListCategories = gameListCategories;
-            }
-        });
-
         recyclerView = view.findViewById(R.id.recyclerHome);
         categoryAdapter = new GameCategoryAdapter(getContext(), gameListCategories);
-        viewModel.getAllCategorys(categoryList);
         recyclerView.setAdapter(categoryAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        viewModel.getAllGames().observe(getViewLifecycleOwner(), new Observer<List<Game>>() {
+            @Override
+            public void onChanged(List<Game> gameList) {
+                for (int i = 0; i < gameList.size(); i++) {
+                    Game game = gameList.get(i);
+                    int temp = -1;
+
+                    for (int j = 0; j < gameListCategories.size(); j++) {
+                        if(gameListCategories.get(j).getCategory().equals(game.getCategory())){
+                            temp = j;
+                            break;
+                        }
+                    }
+                    if(temp == -1){
+                        List<Game> list = new ArrayList<>();
+                        list.add(game);
+                        gameListCategories.add(new GameListCategory(game.getCategory(), list));
+                    }else{
+                        if(!gameListCategories.get(temp).getGameList().contains(game)){
+                            gameListCategories.get(temp).getGameList().add(game);
+                        }
+                    }
+                }
+                HomeFragment.this.categoryAdapter.update(gameListCategories);
+            }
+        });
     }
 }

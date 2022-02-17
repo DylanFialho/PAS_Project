@@ -8,13 +8,13 @@ public class User {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
-    private String password;
     private String email;
+    private String password;
 
-    public User(long id, String password, String email) {
+    public User(long id, String email, String password) {
         this.id = id;
-        this.password = password;
         this.email = email;
+        this.password = password;
     }
 
     public long getId() {

@@ -33,7 +33,6 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
 
     @Override
     public void onBindViewHolder(@NonNull GameCategoryAdapter.ViewHolder holder, int position) {
-
         GameListCategory gameListCategory = gameList.get(position);
         holder.getCategoryTextView().setText(gameListCategory.getCategory());
         GameItemAdapter gameItemAdapter = new GameItemAdapter(context, gameListCategory.getGameList());
@@ -61,7 +60,7 @@ public class GameCategoryAdapter extends RecyclerView.Adapter<GameCategoryAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            this.root = itemView;
             this.categoryTextView = root.findViewById(R.id.categoryTextView);
             this.recyclerView = root.findViewById(R.id.recyclerViewCategory);
         }

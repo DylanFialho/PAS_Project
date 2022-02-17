@@ -1,11 +1,15 @@
 package com.example.pas_project.repository;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.example.pas_project.R;
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameCart;
 import com.example.pas_project.model.GameCategoryBody;
@@ -37,31 +41,11 @@ public class GameRepository {
         this.context = context;
     }
 
-    public LiveData<List<GameWithReview>> getGames() {
-        this.updateGames();
-        return this.gameDao.getAllGames();
-    }
-
     public LiveData<Game> getGameId(long id) {
-        MutableLiveData<Game> mutableLiveData = new MutableLiveData<>();
-        GameService service = DataSource.getGameService();
-        Call<Game> call = service.getGameId(id);
-
-        call.enqueue(new Callback<Game>() {
-            @Override
-            public void onResponse(Call<Game> call, Response<Game> response) {
-                mutableLiveData.postValue(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<Game> call, Throwable t) {
-                mutableLiveData.postValue(null);
-            }
-        });
-        return mutableLiveData;
+        return this.gameDao.getGame(id);
     }
 
-    public void updateGames() {
+    public LiveData<List<Game>> updateGames() {
         GameService gameService = DataSource.getGameService();
         Call<List<Game>> call = gameService.getGames();
 
@@ -85,6 +69,8 @@ public class GameRepository {
                 t.printStackTrace();
             }
         });
+
+        return gameDao.getAllGames();
     }
 
     public LiveData<List<GameCart>> getGamesInCart(long id) {
@@ -113,12 +99,15 @@ public class GameRepository {
         return gameDao.getAllInCart();
     }
 
-    public void createUser(User user) {
+    public void createUser(View view, User user) {
         GameService service = DataSource.getGameService();
-        service.addUser(user).enqueue(new Callback<User>() {
+        Call<User> call = service.addUser(user);
+        call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                User users = response.body();
+                Toast.makeText(context, "Registo Criado", Toast.LENGTH_LONG).show();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.action_registerFragment_to_pub1Fragment);
             }
 
             @Override
@@ -128,71 +117,28 @@ public class GameRepository {
         });
     }
 
-    public LiveData<User> getUserByEmail(Context context, String email) {
-        MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
+    public void getUserByPasswordAndEmail(View view, String email, String password) {
         GameService service = DataSource.getGameService();
-        service.getUserByEmail(email).enqueue(new Callback<List<User>>() {
+        Call<List<User>> call = service.getUserByEmailAndPassword(email, password);
+
+        call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                if (response.isSuccessful()){
+                if(response.isSuccessful()){
                     List<User> users = response.body();
-                    if (users.size() > 0) {
-                        userMutableLiveData.postValue(response.body().get(0));
-                    }else {
-                        userMutableLiveData.postValue(null);
-                        Toast toast = Toast.makeText(context, "Email já existe",Toast.LENGTH_SHORT);
-                        toast.show();
+                    if(users.size() == 1){
+                        NavController navController = Navigation.findNavController(view);
+                        navController.navigate(R.id.action_loginFragment_to_nav_graph);
+                    }else{
+                        Toast.makeText(view.getContext(), "Email ou password errados!", Toast.LENGTH_SHORT);
                     }
-                }else {
-                    userMutableLiveData.postValue(null);
                 }
             }
+
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 t.printStackTrace();
-                userMutableLiveData.postValue(null);
             }
         });
-        return userMutableLiveData;
-    }
-
-    public LiveData<UserResponse> getUserByPasswordAndEmail(String email, String password) {
-        MutableLiveData<UserResponse> userMutableLiveData = new MutableLiveData<>();
-        GameService service = DataSource.getGameService();
-        service.getUserByEmailAndPassword(new User(0, password, email)).enqueue(new Callback<UserResponse>() {
-            @Override
-            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                UserResponse users = response.body();
-                if (users != null) {
-                    userMutableLiveData.postValue(response.body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserResponse> call, Throwable t) {
-                userMutableLiveData.postValue(null);
-            }
-        });
-
-        return userMutableLiveData;
-    }
-
-    public LiveData<List<GameListCategory>> getGamesInCategory(List<String> category){
-        GameService gameService = DataSource.getGameService();
-        Call<GameListCategory> call = gameService.getGameCategorys(new GameCategoryBody(category));
-
-        call.enqueue(new Callback<GameListCategory>() {
-            @Override
-            public void onResponse(Call<GameListCategory> call, Response<GameListCategory> response) {
-                gameDao.getAllinCategory(category);
-            }
-
-            @Override
-            public void onFailure(Call<GameListCategory> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-        return gameDao.getAllinCategory(category);
     }
 }

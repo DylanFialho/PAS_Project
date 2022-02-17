@@ -19,7 +19,7 @@ import java.util.List;
 public interface GameDao {
 
     @Query("SELECT * FROM Game")
-    LiveData<List<GameWithReview>> getAllGames();
+    LiveData<List<Game>> getAllGames();
 
     @Query("SELECT * FROM Game WHERE id = :idGame")
     LiveData<Game> getGame(long idGame);
@@ -28,7 +28,7 @@ public interface GameDao {
     LiveData<List<GameCart>> getAllInCart();
 
     @Query("SELECT * FROM Game WHERE category IN (:categoryList)")
-    LiveData<List<GameListCategory>> getAllinCategory(List<String> categoryList);
+    LiveData<List<Game>> getAllinCategory(List<String> categoryList);
 
     @Query("SELECT * FROM User WHERE email = :email AND password = :pass")
     LiveData<User> getUserByEmailAndPass(String email, String pass);

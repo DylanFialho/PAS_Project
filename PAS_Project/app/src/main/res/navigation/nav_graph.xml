@@ -24,11 +24,7 @@
         android:id="@+id/cartFragment"
         android:name="com.example.pas_project.Fragment.CartFragment"
         android:label="cart_fragment"
-        tools:layout="@layout/cart_fragment" >
-        <action
-            android:id="@+id/action_cartFragment_to_gameDetailsFragment"
-            app:destination="@id/gameDetailsFragment" />
-    </fragment>
+        tools:layout="@layout/cart_fragment" />
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.pas_project.Fragment.NewsFragment"
@@ -40,14 +36,7 @@
         android:label="game_details_fragment"
         tools:layout="@layout/game_details_fragment" >
         <action
-            android:id="@+id/action_gameDetailsFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
-        <action
             android:id="@+id/action_gameDetailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-        <argument
-            android:name="gameId"
-            app:argType="long"
-            android:defaultValue="-1L" />
     </fragment>
 </navigation>

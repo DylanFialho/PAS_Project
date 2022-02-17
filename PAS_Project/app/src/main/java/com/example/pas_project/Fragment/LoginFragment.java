@@ -21,6 +21,7 @@ import androidx.navigation.Navigation;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.LoginFragmentViewModel;
+import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
 
 
@@ -62,17 +63,10 @@ public class LoginFragment extends Fragment {
         funAnimation(textView_login);
         funAnimation(textView_go_to_register);
 
-        /*if(loginFragmentModelViewModel.getActiveSession() != null){
-            NavController navController = Navigation.findNavController(view);
-            navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
-        }*/
-
         this.button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_loginFragment_to_pub1Fragment);
+                login(view);
             }
         });
 
@@ -89,17 +83,7 @@ public class LoginFragment extends Fragment {
         view.animate().alpha(1).setDuration(1000).translationY(0);
     }
 
-    public void login() {
-        loginFragmentModelViewModel.getUserByPasswordAndEmail(editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString()).
-                observe(getViewLifecycleOwner(), new Observer<UserResponse>() {
-                    @Override
-                    public void onChanged(UserResponse user) {
-                        if (user.getErrorMessage() == null) {
-                            loginFragmentModelViewModel.saveSession(user);
-                        }else {
-                            Toast.makeText(getContext(), user.getErrorMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+    public void login(View view) {
+        loginFragmentModelViewModel.getUserLogin(view, editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString());
     }
 }

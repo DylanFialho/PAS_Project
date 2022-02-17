@@ -13,9 +13,6 @@
         android:theme="@style/Theme.PAS_Project"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".model.GameDetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".model.LoginActivity"
             android:exported="true">
             <intent-filter>

@@ -3,12 +3,31 @@ package com.example.pas_project.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
 @Entity
 public class Game {
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return id == game.id && Float.compare(game.price, price) == 0 && isInCart == game.isInCart && Objects.equals(imgURL, game.imgURL) && Objects.equals(title, game.title) && Objects.equals(description, game.description) && Objects.equals(category, game.category) && Objects.equals(console, game.console);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, imgURL, title, description, category, console, price, isInCart);
+    }
+
     @PrimaryKey(autoGenerate = true)
     private long id;
+    @SerializedName("url")
     private String imgURL;
+    @SerializedName("name")
     private String title;
     private String description;
     private String category;

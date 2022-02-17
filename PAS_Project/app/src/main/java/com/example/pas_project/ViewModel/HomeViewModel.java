@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.GameWithReview;
 import com.example.pas_project.repository.GameRepository;
@@ -21,11 +22,7 @@ public class HomeViewModel extends AndroidViewModel {
         this.gameRepository = new GameRepository(application.getApplicationContext());
     }
 
-    public LiveData<List<GameWithReview>> getAllGames(){
-        return this.gameRepository.getGames();
-    }
-
-    public LiveData<List<GameListCategory>> getAllCategorys(List<String> category) {
-        return this.gameRepository.getGamesInCategory(category);
+    public LiveData<List<Game>> getAllGames(){
+        return this.gameRepository.updateGames();
     }
 }

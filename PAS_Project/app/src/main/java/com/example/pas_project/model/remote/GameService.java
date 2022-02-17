@@ -21,11 +21,8 @@ public interface GameService {
     @POST("user/")
     Call<User> addUser(@Body User user);
 
-    @GET("user/{email}")
-    Call<List<User>> getUserByEmail(@Path("email") String email);
-
-    @POST("user/login")
-    Call<UserResponse> getUserByEmailAndPassword(@Body User user);
+    @GET("user/login/{email}/{password}")
+    Call<List<User>> getUserByEmailAndPassword(@Path ("email") String email, @Path("password") String password);
 
     @GET("user/{id}/cart")
     Call<List<GameCart>> getGamesInCart(@Path("id") long id);
@@ -37,7 +34,4 @@ public interface GameService {
 
     @GET("game/{id}")
     Call<Game> getGameId(@Path("id") long id);
-
-    @POST("game/categories")
-    Call<GameListCategory> getGameCategorys(@Body GameCategoryBody categoryBody);
 }

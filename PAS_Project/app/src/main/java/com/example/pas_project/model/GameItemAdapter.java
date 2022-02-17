@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pas_project.Fragment.GameDetailsFragment;
 import com.example.pas_project.R;
 
 import java.util.List;
@@ -37,10 +38,10 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.ViewHo
         Game game = this.gameList.get(position);
         Glide.with(context).load(game.getImgURL()).into(holder.getGameImageView());
         holder.getTextViewTitle().setText(game.getTitle());
-        holder.getTextViewPrice().setText(String.valueOf(game.getPrice()));
+        holder.getTextViewPrice().setText(game.getPrice() + "€");
 
         holder.getRoot().setOnClickListener(view -> {
-            GameDetailsActivity.startActivity(GameItemAdapter.this.context, (long) game.getId());
+            GameDetailsFragment.startFragment(view, game.getId());
         });
     }
 

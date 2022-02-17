@@ -34,32 +34,8 @@ public class RegisterFragment extends Fragment {
 
     private RegisterFragmentViewModel registerFragmentViewModel;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     public RegisterFragment() {
 
-    }
-
-    public static RegisterFragment newInstance(String param1, String param2) {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -92,10 +68,8 @@ public class RegisterFragment extends Fragment {
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Registo concluído", Toast.LENGTH_LONG).show();
-                createUser();
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_registerFragment_to_pub1Fragment);
+                User user = new User(0, editTextEmailRegister.getText().toString(), editTextPasswordRegister.getText().toString());
+                createUser(view, user);
             }
         });
     }
@@ -104,29 +78,16 @@ public class RegisterFragment extends Fragment {
         view.animate().alpha(1).setDuration(1500).translationY(0);
     }
 
-    public void createUser() {
-        registerFragmentViewModel.getUserByEmail(getContext(), editTextEmailRegister.getText().toString()).observe(this, new Observer<User>() {
-            @Override
-            public void onChanged(User user) {
-                if (editTextEmailRegister.getText().toString().isEmpty() ||
-                        editTextPasswordRegister.getText().toString().isEmpty() &&
-                                editTextPasswordRegister.equals(editTextPasswordRegister)) {
-                    Toast.makeText(getContext(), "Passwords não coincidem", Toast.LENGTH_SHORT);
-                }else {
-                    User newUser = new User(0, editTextEmailRegister.getText().toString(), editTextPasswordRegister.getText().toString());
-                    registerFragmentViewModel.createUser(newUser);
-                    registerFragmentViewModel.getUserByEmail(getContext(), newUser.getEmail()).observe(RegisterFragment.this, new Observer<User>() {
-                        @Override
-                        public void onChanged(User user) {
-                            registerFragmentViewModel.saveSession(user);
-                        }
-                    });
-                }if (editTextEmailRegister.getText().toString().isEmpty() || editTextPasswordRegister.getText().toString().isEmpty()
-                || editTextTextPasswordRegisterConfirm .getText().toString().isEmpty()){
-                    Toast.makeText(getContext(), "Preencha todos os campos", Toast.LENGTH_SHORT);
-                    createUser();
-                }
+    public void createUser(View view, User user) {
+        if(user.getPassword().equals(editTextTextPasswordRegisterConfirm.getText().toString())){
+            this.registerFragmentViewModel.createUser(view, user);
+        }else{
+            Toast.makeText(getContext(), "Passwords nao coincidem", Toast.LENGTH_SHORT).show();
+            if (editTextEmailRegister.getText().toString().isEmpty() || editTextPasswordRegister.getText().
+                    toString().isEmpty() || editTextTextPasswordRegisterConfirm.getText().toString().isEmpty()){
+                Toast.makeText(getContext(), "Campos nao preenchidos", Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+
     }
 }

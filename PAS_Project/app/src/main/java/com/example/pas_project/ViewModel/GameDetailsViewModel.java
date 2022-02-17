@@ -7,9 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.pas_project.model.Game;
+import com.example.pas_project.model.Review;
 import com.example.pas_project.repository.GameRepository;
-
-import java.util.List;
 
 public class GameDetailsViewModel extends AndroidViewModel {
 
@@ -20,8 +19,7 @@ public class GameDetailsViewModel extends AndroidViewModel {
         this.gameRepository = new GameRepository(application.getApplicationContext());
     }
 
-
-    public LiveData<Game> getGamesById(long id) {
-        return gameRepository.getGameId(id);
+    public LiveData<Game> getGamebyId(long id){
+        return this.gameRepository.getGameId(id);
     }
 }
