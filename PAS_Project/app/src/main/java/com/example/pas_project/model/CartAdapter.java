@@ -44,15 +44,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         Glide.with(context).load(game.getImgURL()).into(holder.getGameImageView());
         holder.getTextViewTitle().setText(game.getTitle());
         holder.getTextViewPrice().setText(String.valueOf(game.getPrice()));
-
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, game.getTitle() + "eliminado", Toast.LENGTH_SHORT).show();
-                updateList(gameList);
-            }
-        });
-
     }
 
     @Override
@@ -71,7 +62,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private ImageView gameImageView;
         private TextView textViewTitle;
         private TextView textViewPrice;
-        private ImageButton button;
 
         public ViewHolder(@NonNull View gameView) {
             super(gameView);
@@ -79,7 +69,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             this.gameImageView = gameView.findViewById(R.id.imageCart);
             this.textViewTitle = gameView.findViewById(R.id.textNameCart);
             this.textViewPrice = gameView.findViewById(R.id.textNamePrice);
-            this.button = gameView.findViewById(R.id.buttonCart);
         }
 
         public View getRoot() {
@@ -96,10 +85,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         public TextView getTextViewPrice() {
             return textViewPrice;
-        }
-
-        public ImageButton getButton() {
-            return button;
         }
     }
 }
