@@ -1,10 +1,11 @@
-package com.example.pas_project.Fragment;
+package com.example.pas_project.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.pas_project.R;
-import com.example.pas_project.model.GameCart;
 
 import java.util.List;
 
@@ -22,9 +22,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
 
     private final Context context;
-    private List<GameCart> gameList;
+    private List<Game> gameList;
 
-    public CartAdapter(Context context, List<GameCart> gameList) {
+    public CartAdapter(Context context, List<Game> gameList) {
         this.context = context;
         this.gameList = gameList;
     }
@@ -39,7 +39,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
 
-        GameCart game = this.gameList.get(position);
+        Game game = this.gameList.get(position);
 
         Glide.with(context).load(game.getImgURL()).into(holder.getGameImageView());
         holder.getTextViewTitle().setText(game.getTitle());
@@ -60,7 +60,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         return this.gameList.size();
     }
 
-    public void updateList(List<GameCart> newGames) {
+    public void updateList(List<Game> newGames) {
         this.gameList = newGames;
         this.notifyItemRangeInserted(0, newGames.size());
     }
@@ -71,7 +71,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private ImageView gameImageView;
         private TextView textViewTitle;
         private TextView textViewPrice;
-        private Button button;
+        private ImageButton button;
 
         public ViewHolder(@NonNull View gameView) {
             super(gameView);
@@ -98,7 +98,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             return textViewPrice;
         }
 
-        public Button getButton() {
+        public ImageButton getButton() {
             return button;
         }
     }

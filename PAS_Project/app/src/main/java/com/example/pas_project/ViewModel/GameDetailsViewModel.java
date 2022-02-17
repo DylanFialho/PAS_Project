@@ -22,4 +22,8 @@ public class GameDetailsViewModel extends AndroidViewModel {
     public LiveData<Game> getGamebyId(long id){
         return this.gameRepository.getGameId(id);
     }
+
+    public void updateGamesToCart(Game game) {
+        gameRepository.updateGameToCart(game);
+    }
 }

@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.pas_project.model.User;
 import com.example.pas_project.repository.GameRepository;
+import com.example.pas_project.repository.IRepoResponse;
 
 public class RegisterFragmentViewModel extends AndroidViewModel {
 
@@ -20,7 +21,7 @@ public class RegisterFragmentViewModel extends AndroidViewModel {
         this.gameRepository = new GameRepository(application.getApplicationContext());
     }
 
-    public void createUser(View view, User user){
-        this.gameRepository.createUser(view, user);
+    public void createUser(User user, IRepoResponse<User> callBack){
+        this.gameRepository.createUser(user, callBack);
     }
 }

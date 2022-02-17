@@ -1,5 +1,6 @@
 package com.example.pas_project.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +22,11 @@ import androidx.navigation.Navigation;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.RegisterFragmentViewModel;
+import com.example.pas_project.model.MainActivity;
 import com.example.pas_project.model.User;
+import com.example.pas_project.repository.IRepoResponse;
 
-public class RegisterFragment extends Fragment {
+public class RegisterFragment extends Fragment implements IRepoResponse<User> {
 
     private ImageView imageView;
     private LinearLayout linearLayout_EditText;
@@ -69,7 +72,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 User user = new User(0, editTextEmailRegister.getText().toString(), editTextPasswordRegister.getText().toString());
-                createUser(view, user);
+                createUser(user);
             }
         });
     }
@@ -78,16 +81,18 @@ public class RegisterFragment extends Fragment {
         view.animate().alpha(1).setDuration(1500).translationY(0);
     }
 
-    public void createUser(View view, User user) {
-        if(user.getPassword().equals(editTextTextPasswordRegisterConfirm.getText().toString())){
-            this.registerFragmentViewModel.createUser(view, user);
-        }else{
-            Toast.makeText(getContext(), "Passwords nao coincidem", Toast.LENGTH_SHORT).show();
-            if (editTextEmailRegister.getText().toString().isEmpty() || editTextPasswordRegister.getText().
-                    toString().isEmpty() || editTextTextPasswordRegisterConfirm.getText().toString().isEmpty()){
-                Toast.makeText(getContext(), "Campos nao preenchidos", Toast.LENGTH_SHORT).show();
-            }
-        }
+    public void createUser(User user) {
+        this.registerFragmentViewModel.createUser(user, RegisterFragment.this);
+    }
 
+    @Override
+    public void onSuccess(User obj) {
+        if(obj == null){
+            Toast.makeText(getContext(), "Login ja existe", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getContext(), "Conta Criada", Toast.LENGTH_SHORT).show();
+            requireActivity().startActivity(new Intent(requireActivity(), MainActivity.class));
+            requireActivity().finish();
+        }
     }
 }

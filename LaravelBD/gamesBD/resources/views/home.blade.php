@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Bem vindo ao menu de administrador, Aqui pode alterar/remover/adicionar jogos e utilizadores') }}
                 </div>
             </div>
         </div>

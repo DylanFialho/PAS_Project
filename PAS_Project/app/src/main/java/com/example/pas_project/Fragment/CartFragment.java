@@ -9,20 +9,26 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.CartViewModel;
-import com.example.pas_project.model.GameCart;
+import com.example.pas_project.model.CartAdapter;
+import com.example.pas_project.model.Game;
+import com.example.pas_project.model.database.AppDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartFragment extends Fragment {
 
     private CartViewModel mViewModel;
+    RecyclerView recyclerView;
+    CartAdapter cartAdapter;
+    Button button;
+
 
     public static CartFragment newInstance() {
         return new CartFragment();
@@ -34,9 +40,6 @@ public class CartFragment extends Fragment {
         return inflater.inflate(R.layout.cart_fragment, container, false);
     }
 
-    RecyclerView recyclerView;
-    Button button;
-    CartAdapter cartAdapter;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -45,14 +48,7 @@ public class CartFragment extends Fragment {
 
 
         recyclerView = view.findViewById(R.id.recyclerCart);
-
-        mViewModel.updateGames().observe(getViewLifecycleOwner(), new Observer<List<GameCart>>() {
-            @Override
-            public void onChanged(List<GameCart> GameCarts) {
-                cartAdapter.updateList(GameCarts);
-            }
-        });
-
+        cartAdapter = new CartAdapter(getContext(), mViewModel.getGamesInCart());
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
     }

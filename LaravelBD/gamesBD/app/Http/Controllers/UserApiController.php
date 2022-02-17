@@ -93,11 +93,17 @@ class UserApiController extends Controller
         $user = new UserApp;
         $user->email = $request->email;
         $user->password = $request->password;
-        $user->save();
 
-        return response()->json([
+        if(UserApp::where('email', $user->email)->exists()){
+          return response()->json([
+            "message" => "User ja existe"
+            ], 409);
+        }else{
+            $user->save();
+            return response()->json([
             "message" => "user record created"
-        ], 201);
+            ], 201);
+        }
     }
 
     /**

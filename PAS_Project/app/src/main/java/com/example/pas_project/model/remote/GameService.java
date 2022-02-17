@@ -1,11 +1,7 @@
 package com.example.pas_project.model.remote;
 
 import com.example.pas_project.model.Game;
-import com.example.pas_project.model.GameCart;
-import com.example.pas_project.model.GameCategoryBody;
-import com.example.pas_project.model.GameListCategory;
 import com.example.pas_project.model.User;
-import com.example.pas_project.model.UserResponse;
 
 import java.util.List;
 
@@ -23,9 +19,6 @@ public interface GameService {
 
     @GET("user/login/{email}/{password}")
     Call<List<User>> getUserByEmailAndPassword(@Path ("email") String email, @Path("password") String password);
-
-    @GET("user/{id}/cart")
-    Call<List<GameCart>> getGamesInCart(@Path("id") long id);
 
     ///////////////////////////////////////////////////////////////////GAMES API
 

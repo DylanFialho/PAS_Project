@@ -1,5 +1,6 @@
 package com.example.pas_project.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +22,16 @@ import androidx.navigation.Navigation;
 
 import com.example.pas_project.R;
 import com.example.pas_project.ViewModel.LoginFragmentViewModel;
+import com.example.pas_project.model.LoginActivity;
+import com.example.pas_project.model.MainActivity;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
+import com.example.pas_project.repository.IRepoResponse;
+
+import java.util.List;
 
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements IRepoResponse<List<User>> {
 
     private ImageView imageView;
     private LinearLayout linearLayout_EditText;
@@ -84,6 +90,16 @@ public class LoginFragment extends Fragment {
     }
 
     public void login(View view) {
-        loginFragmentModelViewModel.getUserLogin(view, editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString());
+        loginFragmentModelViewModel.getUserLogin(editTextEmailAdress.getText().toString(), editTextTextPassword.getText().toString(), this);
+    }
+
+    @Override
+    public void onSuccess(List<User> obj) {
+        if(obj.isEmpty()){
+            Toast.makeText(getContext(), "Login Errado", Toast.LENGTH_SHORT).show();
+        }else{
+            requireActivity().startActivity(new Intent(requireActivity(), MainActivity.class));
+            requireActivity().finish();
+        }
     }
 }

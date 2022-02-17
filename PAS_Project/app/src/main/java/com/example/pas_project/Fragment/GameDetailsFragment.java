@@ -24,6 +24,7 @@ import com.example.pas_project.ViewModel.GameDetailsViewModel;
 import com.example.pas_project.R;
 import com.example.pas_project.model.Game;
 import com.example.pas_project.model.GameDetailsAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class GameDetailsFragment extends Fragment {
 
@@ -36,6 +37,7 @@ public class GameDetailsFragment extends Fragment {
     private TextView gamePrice;
     private TextView gameDescription;
     private RecyclerView recyclerReview;
+    private FloatingActionButton button;
 
     public static void startFragment(View v, long id){
         Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_gameDetailsFragment);
@@ -47,7 +49,7 @@ public class GameDetailsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_game_details, container, false);
+        return inflater.inflate(R.layout.game_details_fragment, container, false);
     }
 
     @Override
@@ -61,6 +63,7 @@ public class GameDetailsFragment extends Fragment {
         gameDescription = view.findViewById(R.id.textDescriptionDetails);
         gamePrice = view.findViewById(R.id.textPriceGameDetails);
         recyclerReview = view.findViewById(R.id.recyclerViewGameDetails);
+        button = view.findViewById(R.id.buttonGameDetails);
 
         Bundle bundle = exampleFragment.getArguments();
         if (bundle != null) {
@@ -82,9 +85,16 @@ public class GameDetailsFragment extends Fragment {
                     GameDetailsFragment.this.gameTitle.setText(game.getTitle());
                     GameDetailsFragment.this.gamePrice.setText(game.getPrice() + "€");
                     GameDetailsFragment.this.gameDescription.setText(game.getDescription());
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            game.setInCart(true);
+                            gameDetailsViewModel.updateGamesToCart(game);
+                        }
+                    });
                 }
             });
-
         }
     }
 

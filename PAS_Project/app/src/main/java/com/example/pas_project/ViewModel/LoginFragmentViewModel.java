@@ -11,6 +11,9 @@ import androidx.lifecycle.LiveData;
 import com.example.pas_project.model.User;
 import com.example.pas_project.model.UserResponse;
 import com.example.pas_project.repository.GameRepository;
+import com.example.pas_project.repository.IRepoResponse;
+
+import java.util.List;
 
 public class LoginFragmentViewModel extends AndroidViewModel {
 
@@ -21,7 +24,7 @@ public class LoginFragmentViewModel extends AndroidViewModel {
         this.gameRepository = new GameRepository(application);
     }
 
-    public void getUserLogin(View view, String email, String password){
-        gameRepository.getUserByPasswordAndEmail(view, email,password);
+    public void getUserLogin(String email, String password, IRepoResponse<List<User>> callBack){
+        gameRepository.getUserByPasswordAndEmail(email, password, callBack);
     }
 }

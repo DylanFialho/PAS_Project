@@ -1,28 +1,18 @@
 package com.example.pas_project.repository;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
-import com.example.pas_project.R;
 import com.example.pas_project.model.Game;
-import com.example.pas_project.model.GameCart;
-import com.example.pas_project.model.GameCategoryBody;
-import com.example.pas_project.model.GameListCategory;
-import com.example.pas_project.model.GameWithReview;
 import com.example.pas_project.model.User;
-import com.example.pas_project.model.UserResponse;
 import com.example.pas_project.model.database.AppDatabase;
 import com.example.pas_project.model.database.GameDao;
 import com.example.pas_project.model.database.ReviewDao;
 import com.example.pas_project.model.remote.DataSource;
 import com.example.pas_project.model.remote.GameService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -73,41 +63,17 @@ public class GameRepository {
         return gameDao.getAllGames();
     }
 
-    public LiveData<List<GameCart>> getGamesInCart(long id) {
-        GameService gameService = DataSource.getGameService();
-        Call<List<GameCart>> call = gameService.getGamesInCart(id);
 
-        call.enqueue(new Callback<List<GameCart>>() {
-            @Override
-            public void onResponse(Call<List<GameCart>> call, Response<List<GameCart>> response) {
-                if(response.isSuccessful()){
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            gameDao.addGameToCart(response.body());
-                        }
-                    }).start();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GameCart>> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-        return gameDao.getAllInCart();
-    }
-
-    public void createUser(View view, User user) {
+    public void createUser(User user, IRepoResponse<User> callBack) {
         GameService service = DataSource.getGameService();
         Call<User> call = service.addUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(context, "Registo Criado", Toast.LENGTH_LONG).show();
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_registerFragment_to_pub1Fragment);
+                if(response.isSuccessful()){
+                    User user = response.body();
+                    callBack.onSuccess(user);
+                }
             }
 
             @Override
@@ -117,7 +83,7 @@ public class GameRepository {
         });
     }
 
-    public void getUserByPasswordAndEmail(View view, String email, String password) {
+    public void getUserByPasswordAndEmail(String email, String password, IRepoResponse<List<User>> callBack) {
         GameService service = DataSource.getGameService();
         Call<List<User>> call = service.getUserByEmailAndPassword(email, password);
 
@@ -126,12 +92,7 @@ public class GameRepository {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if(response.isSuccessful()){
                     List<User> users = response.body();
-                    if(users.size() == 1){
-                        NavController navController = Navigation.findNavController(view);
-                        navController.navigate(R.id.action_loginFragment_to_nav_graph);
-                    }else{
-                        Toast.makeText(view.getContext(), "Email ou password errados!", Toast.LENGTH_SHORT);
-                    }
+                    callBack.onSuccess(users);
                 }
             }
 
@@ -140,5 +101,40 @@ public class GameRepository {
                 t.printStackTrace();
             }
         });
+    }
+
+    public List<Game> getGamesInCart() {
+        List<Game> gameList = new ArrayList<>();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < gameDao.getAllInCart().size(); i++) {
+                    Game game = gameDao.getAllInCart().get(i);
+                    gameList.add(game);
+                }
+            }
+        }).start();
+
+        return gameList;
+    }
+
+    public void updateGameToCart(Game game) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                gameDao.updateGame(game);
+            }
+        }).start();
+    }
+
+    public void getNews(IRepoResponse<List<Game>> callBack) {
+        List<Game> gameList = new ArrayList<>();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                callBack.onSuccess(gameDao.getNews());
+            }
+        }).start();
     }
 }
